@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HEDGE FUND POD // INSTITUTIONAL TERMINAL v2.0</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkbg: '#0a0a0a',
+                        panelbg: '#141414',
+                        bordergray: '#2a2a2a',
+                        neonred: '#ff3333',
+                        neongreen: '#00ff66',
+                        bloombergorange: '#ff8c00',
+                        terminalcyan: '#00e5ff'
+                    },
+                    fontFamily: {
+                        mono: ['"Fira Code"', '"Roboto Mono"', 'monospace'],
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { background-color: #0a0a0a; color: #e5e7eb; }
+        .terminal-panel { background-color: #141414; border: 1px solid #2a2a2a; }
+        .tab-active { border-bottom: 2px solid #ff8c00; color: #ff8c00; }
+        .heatmap-buy { background-color: rgba(0, 255, 102, 0.15); color: #00ff66; border: 1px solid rgba(0,255,102,0.3); }
+        .heatmap-sell { background-color: rgba(255, 51, 51, 0.15); color: #ff3333; border: 1px solid rgba(255,51,51,0.3); }
+        .heatmap-hold { background-color: #1a1a1a; color: #666; border: 1px solid #333; }
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #0a0a0a; }
+        ::-webkit-scrollbar-thumb { background: #333; }
+        ::-webkit-scrollbar-thumb:hover { background: #ff8c00; }
+    </style>
+</head>
+<body class="font-sans antialiased h-screen flex flex-col overflow-hidden text-xs">
+
+    <header class="bg-black border-b border-bordergray p-3 flex justify-between items-center shrink-0">
+        <div>
+            <h1 class="text-lg font-bold font-mono text-white tracking-widest">HEDGE FUND POD <span class="text-bloombergorange">//</span> v2.0 SYSTEM</h1>
+            <p class="text-[10px] text-gray-500 font-mono mt-1">STATUS: [● RUNNING] ENFORCING CONSTRAINTS & DEAFNESS PROTOCOL</p>
+        </div>
+        <div class="text-right">
+            <p class="font-mono text-terminalcyan text-sm" id="clock">00:00:00 EST</p>
+        </div>
+    </header>
+
+    <nav class="bg-darkbg border-b border-bordergray px-6 py-0 flex space-x-6 font-mono shrink-0 text-xs">
+        <button onclick="switchTab('tab-overview')" id="btn-overview" class="py-3 font-bold tab-active hover:text-bloombergorange">1. [OVERVIEW & DNA]</button>
+        <button onclick="switchTab('tab-warroom')" id="btn-warroom" class="py-3 font-bold text-gray-500 hover:text-bloombergorange">2. [WAR ROOM]</button>
+        <button onclick="switchTab('tab-alpha')" id="btn-alpha" class="py-3 font-bold text-gray-500 hover:text-bloombergorange">3. [ALPHA PORTFOLIOS]</button>
+    </nav>
+
+    <main class="flex-1 overflow-y-auto p-4 bg-darkbg">
+
+        <!-- TAB 1: OVERVIEW & DNA -->
+        <div id="tab-overview" class="h-full grid grid-cols-1 lg:grid-cols-12 gap-4">
+            
+            <div class="col-span-12 lg:col-span-4 flex flex-col space-y-4">
+                <!-- Executive Objective -->
+                <div class="terminal-panel rounded p-4 font-mono">
+                    <h3 class="font-bold text-bloombergorange mb-2 text-[10px] border-b border-bordergray pb-1">EXECUTIVE OBJECTIVE / METHODOLOGY</h3>
+                    <p class="text-[10px] text-gray-400 leading-relaxed">
+                        This system calculates institutional capital flow by executing 5 specific behavioral archetypes ("Strategy DNA") through an adversarial simulation. The core thesis is that institutional alpha is generated not by generic factor momentum, but by identifying forced mechanical buying/selling (VaR scaling constraints) and fading it using misaligned time-horizons.
+                    </p>
+                </div>
+                
+                <!-- Limitations / Assumptions -->
+                <div class="terminal-panel bg-red-900/10 border-red-900/30 p-4">
+                    <h4 class="font-mono text-neonred font-bold text-[10px] mb-2">LIMITATIONS & ASSUMPTIONS (OBSERVED VS INFERRED)</h4>
+                    <ul class="text-[10px] text-gray-400 font-sans space-y-2 list-disc pl-4">
+                        <li><b>Data Provenance:</b> Long positions are <span class="text-neongreen">OBSERVED</span> via SEC 13F/13D filings. Derivatives and short positioning are <span class="text-bloombergorange">INFERRED</span> mathematically.</li>
+                        <li><b>Cost of Carry:</b> Magic tail-hedges are banned. Convexity hedges mechanically drag agent AUM (e.g., -1.5% premium yield drag applied aggressively).</li>
+                        <li><b>Siloed Logic:</b> Time-horizons are structurally segregated via the "Deafness Protocol".</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Strategy DNA & Radar -->
+            <div class="col-span-12 lg:col-span-8 flex flex-col space-y-4">
+                <div class="terminal-panel rounded flex flex-col flex-1">
+                    <div class="bg-black px-3 py-2 border-b border-bordergray font-mono font-bold text-bloombergorange text-[10px]">STRATEGY DNA OVERVIEW & RADAR MATRIX</div>
+                    <div class="flex flex-1 p-4">
+                        <div class="w-1/2 relative min-h-[300px]"><canvas id="dnaRadarChart"></canvas></div>
+                        <div class="w-1/2 pl-4 flex flex-col space-y-2 overflow-y-auto">
+                            <div class="p-2 border border-bordergray bg-black rounded"><span class="text-purple-400 font-bold block mb-1">Agent_AlphaQuant</span><span class="text-[9px] text-gray-400">Horizon: 1-5 Days. High velocity. Extreme VaR sensitivity.</span></div>
+                            <div class="p-2 border border-bordergray bg-black rounded"><span class="text-yellow-400 font-bold block mb-1">Agent_PodManager</span><span class="text-[9px] text-gray-400">Horizon: 5-20 Days. Beta-neutral. Gross leverage maxed.</span></div>
+                            <div class="p-2 border border-bordergray bg-black rounded"><span class="text-blue-400 font-bold block mb-1">Agent_FundieTiger</span><span class="text-[9px] text-gray-400">Horizon: 3-5 Years. Fundamental FCF focus. Low macro pivot.</span></div>
+                            <div class="p-2 border border-bordergray bg-black rounded"><span class="text-green-500 font-bold block mb-1">Agent_MacroTitan</span><span class="text-[9px] text-gray-400">Horizon: 3-12 Months. Directional unhedged trades. Rate sensitive.</span></div>
+                            <div class="p-2 border border-bordergray bg-black rounded"><span class="text-red-500 font-bold block mb-1">Agent_ActivistAlpha</span><span class="text-[9px] text-gray-400">Horizon: 2-5 Years. Deep concentration. Will pay heavy Cost of Carry.</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 2: WAR ROOM -->
+        <div id="tab-warroom" class="h-full hidden grid grid-cols-1 lg:grid-cols-12 gap-4">
+            <!-- Left: Catalyst -->
+            <div class="col-span-3 flex flex-col space-y-4">
+                <div class="terminal-panel rounded p-4 font-mono">
+                    <div class="font-bold text-bloombergorange text-[10px] border-b border-bordergray pb-2 mb-2">CATALYST PACKET</div>
+                    <h3 class="font-bold text-neonred mb-2 text-sm">"BOND VIGILANTE" SHOCK</h3>
+                    <div class="space-y-2">
+                        <div class="bg-black border border-bordergray p-2"><span class="text-gray-500 block text-[9px]">10Y YIELD RERATE</span><span class="text-neonred font-bold">5.15% (+35bps)</span></div>
+                        <div class="bg-black border border-bordergray p-2"><span class="text-gray-500 block text-[9px]">VOLATILITY SPIKE</span><span class="text-neongreen font-bold">VIX 26.5 (+42%)</span></div>
+                    </div>
+                </div>
+                <!-- Heatmap -->
+                <div class="terminal-panel rounded flex flex-col flex-1">
+                    <div class="bg-black px-3 py-2 border-b border-bordergray font-mono font-bold text-bloombergorange text-[10px]">CONSENSUS / DIVERGENCE HEATMAP</div>
+                    <div class="p-2 flex-1 overflow-auto">
+                        <table class="w-full text-center table-fixed font-mono text-[9px]">
+                            <thead><tr><th class="w-1/4 pb-2 text-left">ASSET</th><th class="pb-2 text-purple-400">Quant</th><th class="pb-2 text-yellow-400">Pod</th><th class="pb-2 text-blue-400">Fundie</th></tr></thead>
+                            <tbody>
+                                <tr class="border-t border-bordergray"><td class="text-left py-2 font-bold bg-black">MSFT</td><td class="p-1"><div class="heatmap-sell p-1">SELL (VaR)</div></td><td class="p-1"><div class="heatmap-sell p-1">SELL (Beta)</div></td><td class="p-1"><div class="heatmap-buy border-bloombergorange p-1 font-bold">BUY (Divergent)</div></td></tr>
+                                <tr class="border-t border-bordergray"><td class="text-left py-2 font-bold bg-black">TLT</td><td class="p-1"><div class="heatmap-sell p-1">SELL (Trend)</div></td><td class="p-1"><div class="heatmap-hold p-1">IGNORE</div></td><td class="p-1"><div class="heatmap-hold p-1">IGNORE</div></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Middle: Structured Debate -->
+            <div class="col-span-9 terminal-panel rounded flex flex-col">
+                <div class="bg-black px-3 py-2 border-b border-bordergray font-mono font-bold text-bloombergorange text-[10px] flex justify-between">
+                    <span>5-ROUND ADVERSARIAL PROTOCOL TIMELINE</span>
+                    <span class="text-gray-500">ENFORCING DEAFNESS PROTOCOL</span>
+                </div>
+                <div class="p-4 overflow-y-auto space-y-4 font-mono text-[11px]">
+                    
+                    <div class="text-gray-500 border-b border-bordergray pb-1 font-bold pt-2">ROUND 1: INITIAL INTERPRETATION</div>
+                    <div class="border-l-2 border-purple-500 pl-3">
+                        <span class="text-purple-400 font-bold">@AlphaQuant:</span> `[IMPACT_THESIS: VIX > 25 limit breached. Triggering automatic systematic de-risking algorithms.]`
+                    </div>
+
+                    <div class="text-gray-500 border-b border-bordergray pb-1 font-bold mt-6 pt-2">ROUND 2: PROPOSED POSITIONING</div>
+                    <div class="border-l-2 border-purple-500 pl-3">
+                        <span class="text-purple-400 font-bold">@AlphaQuant:</span> `[ACTION: SELL] [ASSET: XLK] [SIZE: -400bps NAV]`
+                    </div>
+                    <div class="border-l-2 border-blue-500 pl-3">
+                        <span class="text-blue-400 font-bold">@FundieTiger:</span> `[ACTION: BUY] [ASSET: XLK] [SIZE: +200bps NAV] [RATIONALE: Buying Quant liquidation vacuums.]`
+                    </div>
+                    
+                    <div class="text-gray-500 border-b border-bordergray pb-1 font-bold mt-6 pt-2">ROUND 3: CROSS-EXAMINATION</div>
+                    <div class="border-l-2 border-green-500 pl-3">
+                        <span class="text-green-400 font-bold">@MacroTitan -> @FundieTiger:</span> `[CRITIQUE: Duration math applies to all risk assets. 5.15% yield mechanically rerates SaaS DCFs down 20%.]`
+                    </div>
+                    <div class="border-l-2 border-blue-500 pl-3">
+                        <span class="text-blue-400 font-bold">@FundieTiger -> @PodManager:</span> `[CRITIQUE: You are trading noise. The 5-year TAM for cloud architecture is unchanged.]`
+                    </div>
+                    <div class="border-l-2 border-yellow-500 pl-3 bg-red-900/20 py-1">
+                        <span class="text-yellow-400 font-bold">@PodManager:</span> <span class="text-neonred font-bold">`[ERROR: TIME HORIZON MISMATCH. REJECTING CRITIQUE AS NOISE. 5-YEAR TAM IRRELEVANT TO 5-DAY VaR SHOCKS.]`</span>
+                    </div>
+
+                    <div class="text-gray-500 border-b border-bordergray pb-1 font-bold mt-6 pt-2">ROUND 4: RISK & CROWDING CHALLENGE</div>
+                    <div class="border-l-2 border-gray-500 pl-3">
+                        <span class="text-bloombergorange font-bold">SYS_AGGREGATOR:</span> `[WARNING] TLT Short is CROWDED (3/5 Agents). Applying -150bps EV penalty to all trend shorts.`
+                    </div>
+
+                    <div class="text-gray-500 border-b border-bordergray pb-1 font-bold mt-6 pt-2">ROUND 5: FINAL MEMO</div>
+                    <div class="border-l-2 border-gray-500 pl-3 italic text-gray-400">
+                        System executing position lock. See Alpha Portfolios tab for final 30-Day projections.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 3: ALPHA PORTFOLIOS -->
+        <div id="tab-alpha" class="h-full hidden flex flex-col space-y-4">
+            
+            <!-- Alpha Board -->
+            <div class="terminal-panel rounded flex flex-col shrink-0 min-h-[200px]">
+                <div class="bg-black px-3 py-2 border-b border-bordergray font-mono font-bold text-bloombergorange text-[10px] flex justify-between">
+                    <span>ACTIONABLE COPY-CAT ALPHA BOARD</span>
+                    <span class="text-terminalcyan">INCLUDES CROWDING PENALTIES</span>
+                </div>
+                <div class="p-4 overflow-y-auto">
+                    <table class="w-full text-left font-mono text-[11px]">
+                        <thead class="text-gray-500 border-b border-bordergray">
+                            <tr><th class="pb-2">ASSET</th><th class="pb-2">CATEGORY</th><th class="pb-2 text-center">AGENTS</th><th class="pb-2">CROWD PENALTY</th><th class="pb-2 text-center">30D VIEW</th><th class="pb-2">RATIONALE</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-bordergray/50 hover:bg-white/5">
+                                <td class="py-3 font-bold text-white"><span class="bg-neongreen/20 text-neongreen px-1 rounded mr-2">BUY</span>MSFT</td>
+                                <td class="py-3 text-terminalcyan">Divergent Alpha</td><td class="py-3 text-center">1/5</td>
+                                <td class="py-3 text-neongreen">0 bps (Unique)</td>
+                                <td class="py-3 text-center text-neongreen font-bold">⬆️ UP</td>
+                                <td class="py-3 text-gray-400">Absorbing VaR liquidation vacuums caused by Pods and Quants.</td>
+                            </tr>
+                            <tr class="border-b border-bordergray/50 hover:bg-white/5">
+                                <td class="py-3 font-bold text-white"><span class="bg-neonred/20 text-neonred px-1 rounded mr-2">SHRT</span>TLT</td>
+                                <td class="py-3 text-neonred">Crowded Short</td><td class="py-3 text-center">3/5</td>
+                                <td class="py-3 text-neonred font-bold">-150 bps EV</td>
+                                <td class="py-3 text-center text-neonred font-bold">🚨 REV</td>
+                                <td class="py-3 text-gray-400">Highly crowded macro thesis. Subject to massive 150bps penalty.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 flex-1">
+                
+                <!-- 30-Day Portfolios -->
+                <div class="terminal-panel rounded flex flex-col">
+                    <div class="bg-black px-3 py-2 border-b border-bordergray font-mono font-bold text-bloombergorange text-[10px]">PROJECTED 30-DAY PORTFOLIOS</div>
+                    <div class="p-4 overflow-y-auto text-[10px] font-mono space-y-4">
+                        <table class="w-full text-left">
+                            <thead class="text-gray-500 border-b border-bordergray"><tr><th>AGENT</th><th>LONG EXP</th><th>SHORT/HEDGE EXP</th><th>NET/GROSS</th></tr></thead>
+                            <tbody>
+                                <tr class="border-b border-bordergray bg-black/50">
+                                    <td class="py-2 text-yellow-400 font-bold">Agent_Pod</td>
+                                    <td class="py-2 text-gray-300">Reg Banks (12%)</td><td class="py-2 text-gray-300">Tech SaaS Basket (12%)</td><td class="py-2 text-gray-400">0% / 200%</td>
+                                </tr>
+                                <tr class="border-b border-bordergray bg-black/50">
+                                    <td class="py-2 text-blue-400 font-bold">Agent_Fundie</td>
+                                    <td class="py-2 text-gray-300">MSFT (15%), GOOG (8%)</td><td class="py-2 text-gray-300">High-Yield Index ETF (4%)</td><td class="py-2 text-gray-400">85% / 105%</td>
+                                </tr>
+                                <tr class="border-b border-bordergray bg-black/50">
+                                    <td class="py-2 text-red-400 font-bold">Agent_Activist</td>
+                                    <td class="py-2 text-gray-300">Undervalued Target (9%)</td><td class="py-2 text-neonred font-bold">OTM VIX Calls (Cost of Carry Funded)</td><td class="py-2 text-gray-400">95% / 120%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Fidelity Score Matrix -->
+                <div class="terminal-panel rounded flex flex-col">
+                    <div class="bg-black px-3 py-2 border-b border-bordergray font-mono font-bold text-bloombergorange text-[10px]">FIDELITY SCORE MATRIX (0-100)</div>
+                    <div class="p-4 overflow-y-auto space-y-4 font-mono text-[10px]">
+                        <!-- Scorecard 1 -->
+                        <div class="border border-bordergray p-2 bg-black">
+                            <div class="flex justify-between font-bold text-yellow-400 mb-2 border-b border-bordergray pb-1"><span>@PodManager (Market Neutral)</span><span>TOTAL: 45/100</span></div>
+                            <div class="grid grid-cols-2 gap-x-4 gap-y-1 text-gray-400">
+                                <div class="flex justify-between"><span>Behavioral Match:</span><span class="text-neongreen">20/20</span></div>
+                                <div class="flex justify-between"><span>Instrument Match:</span><span class="text-bloombergorange">10/20</span></div>
+                                <div class="flex justify-between"><span>Risk-Style Match:</span><span class="text-neongreen">20/20</span></div>
+                                <div class="flex justify-between"><span>Hedge-Style Match:</span><span class="text-bloombergorange">15/20</span></div>
+                            </div>
+                            <div class="mt-2 pt-2 border-t border-bordergray flex justify-between text-neonred font-bold">
+                                <span>OBSERVABILITY PENALTY:</span><span>-15 pts (13F laws hide short book)</span>
+                            </div>
+                        </div>
+                        <div class="border border-bordergray p-2 bg-black">
+                            <div class="flex justify-between font-bold text-blue-400 mb-2 border-b border-bordergray pb-1"><span>@FundieTiger (Fundamental L/S)</span><span>TOTAL: 95/100</span></div>
+                            <div class="grid grid-cols-2 gap-x-4 gap-y-1 text-gray-400">
+                                <div class="flex justify-between"><span>Behavioral Match:</span><span class="text-neongreen">20/20</span></div>
+                                <div class="flex justify-between"><span>Instrument Match:</span><span class="text-neongreen">20/20</span></div>
+                                <div class="flex justify-between"><span>Risk Match:</span><span class="text-neongreen">20/20</span></div>
+                                <div class="flex justify-between"><span>Observability Penalty:</span><span class="text-bloombergorange">-5 pts (Clear SEC 13F)</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function switchTab(tabId) {
+            ['tab-overview', 'tab-warroom', 'tab-alpha'].forEach(id => document.getElementById(id).classList.add('hidden'));
+            ['btn-overview', 'btn-warroom', 'btn-alpha'].forEach(id => {
+                let el = document.getElementById(id);
+                el.classList.remove('tab-active', 'text-bloombergorange');
+                el.classList.add('text-gray-500');
+            });
+            document.getElementById(tabId).classList.remove('hidden');
+            let btn = document.getElementById(tabId.replace('tab-', 'btn-'));
+            btn.classList.add('tab-active', 'text-bloombergorange');
+            btn.classList.remove('text-gray-500');
+            if (tabId === 'tab-overview' && !window.chartDrawn) { drawChart(); window.chartDrawn = true; }
+        }
+        setInterval(() => document.getElementById('clock').innerText = new Date().toLocaleTimeString('en-US', {hour12:false})+" EST", 1000);
+
+        function drawChart() {
+            if(!document.getElementById('dnaRadarChart')) return;
+            Chart.defaults.color = '#888'; Chart.defaults.font.family = '"Fira Code", monospace'; Chart.defaults.font.size = 9;
+            new Chart(document.getElementById('dnaRadarChart').getContext('2d'), {
+                type: 'radar',
+                data: {
+                    labels: ['Directionality', 'Gross Leverage', 'Macro Sensitivity', 'Idio Concentration', 'Velocity', 'Hedge Demand'],
+                    datasets: [
+                        { label: 'Quant', data: [20,70,20,10,100,20], borderColor: '#a855f7', backgroundColor: 'rgba(168,85,247,0.1)', borderWidth: 1 },
+                        { label: 'Macro', data: [100,60,100,10,40,60], borderColor: '#22c55e', backgroundColor: 'rgba(34,197,94,0.1)', borderWidth: 1 },
+                        { label: 'Pod', data: [0,100,10,80,90,10], borderColor: '#eab308', backgroundColor: 'rgba(234,179,8,0.1)', borderWidth: 1 },
+                        { label: 'Fundie', data: [60,20,40,80,20,20], borderColor: '#3b82f6', backgroundColor: 'rgba(59,130,246,0.1)', borderWidth: 1 },
+                        { label: 'Activist', data: [80,10,30,100,10,100], borderColor: '#ef4444', backgroundColor: 'rgba(239,68,68,0.1)', borderWidth: 1 }
+                    ]
+                },
+                options: { maintainAspectRatio: false, scales: { r: { grid: {color: '#333'}, ticks: {display: false}, pointLabels: {color: '#b0b0b0'} } }, plugins: { legend: { position: 'bottom' } } }
+            });
+        }
+        
+        // Init chart on mount
+        window.onload = function() {
+            setTimeout(() => { if (!window.chartDrawn) { drawChart(); window.chartDrawn = true; } }, 100);
+        };
+    </script>
+</body>
+</html>
