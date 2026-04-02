@@ -2,6 +2,11 @@
     "archetype_name": "Systematic Stat-Arb (Alpha Quant)",
     "fund_analogs": ["Renaissance Technologies (Medallion Fund)", "Two Sigma Investments", "DE Shaw"],
     "philosophy": "Mean-reversion algorithms exploiting structural microstructure inefficiencies across thousands of liquid equity pairs. Assumes long-term fundamentals are irrelevant — if standard deviation boundaries breach, the book is cut mechanically.",
+    "institutional_secrets": {
+        "regime_detection": "Hidden Markov Models (HMM) identifying hidden 'Market States' (Growth to Stagflation transitions).",
+        "data_provenance": "'Mercerized Data' — Bayesian cleaning of 100+ unconventional datasets (satellite, logistics).",
+        "segmentation": "Medallion (Internal, Short-term, High-Cap) vs RIEF (Institutional, Mid-term, Factor-aware)."
+    },
     "holding_period": "1-5 Days",
     "leverage_estimate": "300%+ Gross",
     "gross_net_style": "High Gross, ~0% Net (Strict Market Neutral)",
@@ -18,7 +23,8 @@
         "var_window_days": 5,
         "max_drawdown_monthly": "-2.5%",
         "correlation_limit": 0.8,
-        "forced_liquidation_trigger": "VIX > 25 OR intraday VaR breach"
+        "primary_trigger": "Variance Expansion Breach (High-gamma regime detection overrides price targets).",
+        "forced_liquidation_trigger": "VIX > 25 OR intraday VaR breach (agnostic to asset value)."
     },
     "preferred_instruments": [
         "High-Frequency Equity Swaps",

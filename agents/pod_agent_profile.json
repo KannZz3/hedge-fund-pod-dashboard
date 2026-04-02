@@ -2,6 +2,11 @@
     "archetype_name": "Multi-Manager Market Neutral (Pod Shop)",
     "fund_analogs": ["Millennium Management", "Citadel (Equities)", "Point72 Asset Management"],
     "philosophy": "Extreme diversification through factor-neutral, autonomously managed sub-pods. Each PM runs an isolated book targeting idiosyncratic alpha. Center risk management prevents correlated blowups via non-negotiable drawdown enforcement. Ken Griffin's core thesis: diversified alpha is more scalable and less fragile than concentrated bets.",
+    "institutional_secrets": {
+        "capital_allocation_velocity": "$100M+ reallocation daily between 330+ pods.",
+        "center_risk_mandate": "Real-time 'Crowding Scans' to prevent intra-firm factor overlap (e.g., hidden AI momentum crowding).",
+        "leverage_engine": "Internal Repo desk controls effective gross by pricing capital based on 'Marginal VaR Consumption'."
+    },
     "holding_period": "5-20 Days",
     "leverage_estimate": "200% Gross",
     "gross_net_style": "+/- 2% Strict Net Bounds — violations trigger immediate forced rebalancing",
@@ -17,7 +22,8 @@
         "var_window_days": 10,
         "max_drawdown_monthly": "-3.0%",
         "correlation_limit": 0.2,
-        "forced_liquidation_trigger": "PM Drawdown > 3% triggers 50% gross cut; > 5% triggers full pod termination"
+        "termination_protocol": "The 5/7.5 Rule: 5% Drawdown = 50% Gross Cut. 7.5% Drawdown = Instant Pod Termination/Liquidation.",
+        "forced_liquidation_trigger": "PM Drawdown > 5% triggers mandatory center-desk takeover."
     },
     "preferred_instruments": [
         "Liquid Large-Cap Equities (top 1000 by ADV)",
