@@ -301,24 +301,31 @@
                         </div>
                         <!-- Causal Engine Pipeline Strip -->
                         <div class="mb-2">
-                            <span class="text-[10px] text-gray-500 font-mono uppercase tracking-widest block mb-3">System Pipeline Execution Flow</span>
-                            <div class="flex flex-wrap md:flex-nowrap items-center justify-between text-[11px] font-medium font-sans gap-y-2 gap-x-1 bg-white/[0.02] border border-white/5 rounded-md md:rounded-full px-4 py-3 relative overflow-hidden">
-                                <!-- Pipeline Steps -->
-                                <div class="flex items-center text-bloombergorange z-10"><span class="w-1.5 h-1.5 rounded-full bg-bloombergorange mr-1.5"></span>Macro Regime</div>
-                                <svg class="w-4 h-4 text-gray-600 z-10 hidden md:block shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7"></path></svg>
-                                
-                                <div class="flex items-center text-agentquant z-10"><span class="w-1.5 h-1.5 rounded-full bg-agentquant mr-1.5"></span>Agent DNA</div>
-                                <svg class="w-4 h-4 text-gray-600 z-10 hidden md:block shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7"></path></svg>
-                                
-                                <div class="flex items-center text-neonred z-10"><span class="w-1.5 h-1.5 rounded-full bg-neonred mr-1.5"></span>Constraint Engine</div>
-                                <svg class="w-4 h-4 text-gray-600 z-10 hidden md:block shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7"></path></svg>
-                                
-                                <div class="flex items-center text-gray-300 z-10"><span class="w-1.5 h-1.5 rounded-full bg-gray-400 mr-1.5"></span>Adversarial War Room</div>
-                                <svg class="w-4 h-4 text-gray-600 z-10 hidden md:block shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7"></path></svg>
-                                <div class="flex items-center text-neongreen z-10 font-bold shrink-0"><span class="w-1.5 h-1.5 rounded-full bg-neongreen mr-1.5 shadow-[0_0_8px_#39ff14]"></span>Position Output</div>
-                                
-                                <!-- Background connecting line -->
-                                <div class="absolute top-1/2 left-0 w-full h-[1px] bg-gradient-to-r from-bloombergorange/20 via-white/10 to-neongreen/20 -translate-y-1/2 z-0 hidden md:block"></div>
+                            <span class="section-label block mb-3">System Pipeline Execution Flow</span>
+                            <div class="grid grid-cols-5 gap-1 relative">
+                                <!-- Step nodes -->
+                                <div class="flex flex-col items-center gap-1.5">
+                                    <div class="w-2 h-2 rounded-full bg-bloombergorange ring-4 ring-bloombergorange/10"></div>
+                                    <span class="text-[10px] font-medium text-bloombergorange text-center leading-tight">Macro<br>Regime</span>
+                                </div>
+                                <div class="flex flex-col items-center gap-1.5">
+                                    <div class="w-2 h-2 rounded-full bg-agentquant ring-4 ring-agentquant/10"></div>
+                                    <span class="text-[10px] font-medium text-agentquant text-center leading-tight">Agent<br>DNA</span>
+                                </div>
+                                <div class="flex flex-col items-center gap-1.5">
+                                    <div class="w-2 h-2 rounded-full bg-neonred ring-4 ring-neonred/10"></div>
+                                    <span class="text-[10px] font-medium text-neonred text-center leading-tight">Constraint<br>Engine</span>
+                                </div>
+                                <div class="flex flex-col items-center gap-1.5">
+                                    <div class="w-2 h-2 rounded-full bg-gray-400 ring-4 ring-white/5"></div>
+                                    <span class="text-[10px] font-medium text-gray-400 text-center leading-tight">War<br>Room</span>
+                                </div>
+                                <div class="flex flex-col items-center gap-1.5">
+                                    <div class="w-2 h-2 rounded-full bg-neongreen ring-4 ring-neongreen/10" style="box-shadow:0 0 8px rgba(34,197,94,0.4)"></div>
+                                    <span class="text-[10px] font-bold text-neongreen text-center leading-tight">Position<br>Output</span>
+                                </div>
+                                <!-- Connecting line behind nodes -->
+                                <div class="absolute top-[3px] left-[10%] right-[10%] h-px bg-gradient-to-r from-bloombergorange/40 via-white/10 to-neongreen/40 z-0"></div>
                             </div>
                         </div>
                     </div>
@@ -366,17 +373,17 @@
                     <span class="text-[10px] text-gray-500">5 ARCHETYPES LOADED</span>
                 </div>
                 
-                <div class="flex flex-col lg:flex-row flex-1 p-6 gap-8 items-center justify-center">
-                    <!-- Radar Chart Container -->
-                    <div class="w-full lg:w-[45%] relative h-[450px] flex items-center justify-center">
-                        <canvas id="dnaRadarChart"></canvas>
+                <!-- Radar on top, agent cards in 2-col grid below -->
+                <div class="flex flex-col p-5 gap-6">
+                    <!-- Radar Chart: full width, fixed height, centred -->
+                    <div class="w-full relative" style="height:340px">
+                        <canvas id="dnaRadarChart" style="width:100%;height:100%"></canvas>
                     </div>
-                    
-                    <!-- Highly Detailed Agent Cards -->
-                    <div class="w-full lg:w-[55%] flex flex-col justify-center space-y-4">
+                    <!-- Agent Cards: 2-col grid -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-3">
                         
                         <!-- Agent 1: Quant -->
-                        <div class="p-4 border-l-4 border-l-agentquant bg-white/[0.015] rounded-r transition-colors shadow-sm">
+                        <div class="agent-card border-l-4 border-l-agentquant p-4">
                             <div class="flex justify-between items-start mb-3 border-b border-white/5 pb-3">
                                 <div>
                                     <h4 class="text-white font-medium text-[13px] tracking-wide">Systematic Stat-Arb (Quant)</h4>
@@ -390,22 +397,22 @@
                             </div>
                             <div class="grid grid-cols-2 gap-4 text-[11px] text-gray-400">
                                 <div>
-                                    <span class="text-gray-500 uppercase tracking-widest text-[9px] block mb-1">Philosophy & Style</span>
+                                    <span class="section-label block mb-1">Philosophy & Style</span>
                                     <span class="text-white">Mean-reversion algorithms.</span> Trades massive books of tiny spread anomalies.
                                 </div>
                                 <div>
-                                     <span class="text-gray-500 uppercase tracking-widest text-[9px] block mb-1">Instruments</span>
+                                     <span class="section-label block mb-1">Instruments</span>
                                      High-Frequency Equity Swaps, Delta One.
                                 </div>
                                 <div class="col-span-2 border-t border-white/5 pt-2 mt-1">
-                                    <span class="text-gray-500 uppercase tracking-widest text-[9px] block mb-1">Stress Behavior / Reaction Function</span>
+                                    <span class="section-label block mb-1">Stress Behavior / Reaction Function</span>
                                     <span class="text-white">Blind to 5-year fundamentals.</span> Elevated volatility instantly breaches pre-programmed VaR constraints, triggering agnostic, forced deleveraging of the entire gross book (a liquidity vacuum).
                                 </div>
                             </div>
                         </div>
                         
                         <!-- Agent 2: Pod -->
-                        <div class="p-4 border-l-4 border-l-agentpod bg-white/[0.015] rounded-r transition-colors shadow-sm">
+                        <div class="agent-card border-l-4 border-l-agentpod p-4">
                             <div class="flex justify-between items-start mb-3 border-b border-white/5 pb-3">
                                 <div>
                                     <h4 class="text-white font-medium text-[13px] tracking-wide">Multi-Manager Pod Shop</h4>
@@ -419,22 +426,22 @@
                             </div>
                             <div class="grid grid-cols-2 gap-4 text-[11px] text-gray-400">
                                 <div>
-                                    <span class="text-gray-500 uppercase tracking-widest text-[9px] block mb-1">Philosophy & Style</span>
+                                    <span class="section-label block mb-1">Philosophy & Style</span>
                                     <span class="text-white">Extreme diversification.</span> Factor-neutral pods isolated to prevent correlated blowups.
                                 </div>
                                 <div>
-                                     <span class="text-gray-500 uppercase tracking-widest text-[9px] block mb-1">Instruments</span>
+                                     <span class="section-label block mb-1">Instruments</span>
                                      Liquid Equities, Sector ETF Hedges.
                                 </div>
                                 <div class="col-span-2 border-t border-white/5 pt-2 mt-1">
-                                    <span class="text-gray-500 uppercase tracking-widest text-[9px] block mb-1">Stress Behavior / Reaction Function</span>
+                                    <span class="section-label block mb-1">Stress Behavior / Reaction Function</span>
                                     <span class="text-white">Drawdown survival mechanics.</span> Risk managers will forcibly cut a PM's book at -3% monthly drawdown, irrespective of underlying asset value, reinforcing downward structural momentum.
                                 </div>
                             </div>
                         </div>
                         
                         <!-- Agent 3: Fundie -->
-                        <div class="p-4 border-l-4 border-l-agentfundie bg-white/[0.015] rounded-r transition-colors shadow-sm">
+                        <div class="agent-card border-l-4 border-l-agentfundie p-4">
                             <div class="flex justify-between items-start mb-3 border-b border-white/5 pb-3">
                                 <div>
                                     <h4 class="text-white font-medium text-[13px] tracking-wide">Fundamental L/S (Tiger Cub)</h4>
@@ -448,22 +455,22 @@
                             </div>
                             <div class="grid grid-cols-2 gap-4 text-[11px] text-gray-400">
                                 <div>
-                                    <span class="text-gray-500 uppercase tracking-widest text-[9px] block mb-1">Philosophy & Style</span>
+                                    <span class="section-label block mb-1">Philosophy & Style</span>
                                     <span class="text-white">Concentrated conviction.</span> Focuses purely on intrinsic free-cash-flow expansion.
                                 </div>
                                 <div>
-                                     <span class="text-gray-500 uppercase tracking-widest text-[9px] block mb-1">Instruments</span>
+                                     <span class="section-label block mb-1">Instruments</span>
                                      Cash Equities, Strategic Block Trades.
                                 </div>
                                 <div class="col-span-2 border-t border-white/5 pt-2 mt-1">
-                                    <span class="text-gray-500 uppercase tracking-widest text-[9px] block mb-1">Stress Behavior / Reaction Function</span>
+                                    <span class="section-label block mb-1">Stress Behavior / Reaction Function</span>
                                     <span class="text-white">Absorption of systemic panic.</span> Possesses the duration horizon to step in and accumulate core thesis assets when Quant/Pod capital is forced to arbitrarily liquidate.
                                 </div>
                             </div>
                         </div>
                         
                         <!-- Agent 4: Macro -->
-                        <div class="p-4 border-l-4 border-l-agentmacro bg-white/[0.015] rounded-r transition-colors shadow-sm">
+                        <div class="agent-card border-l-4 border-l-agentmacro p-4">
                             <div class="flex justify-between items-start mb-3 border-b border-white/5 pb-3">
                                 <div>
                                     <h4 class="text-white font-medium text-[13px] tracking-wide">Discretionary Macro Titan</h4>
@@ -477,21 +484,21 @@
                             </div>
                             <div class="grid grid-cols-2 gap-4 text-[11px] text-gray-400">
                                 <div>
-                                    <span class="text-gray-500 uppercase tracking-widest text-[9px] block mb-1">Philosophy & Style</span>
+                                    <span class="section-label block mb-1">Philosophy & Style</span>
                                     <span class="text-white">Top-down regime mapping.</span> Expresses views purely via global liquidity metrics.
                                 </div>
                                 <div>
-                                     <span class="text-gray-500 uppercase tracking-widest text-[9px] block mb-1">Instruments</span>
+                                     <span class="section-label block mb-1">Instruments</span>
                                      Sovereign Bonds, FX, Rates, Commodities.
                                 </div>
                                 <div class="col-span-2 border-t border-white/5 pt-2 mt-1">
-                                    <span class="text-gray-500 uppercase tracking-widest text-[9px] block mb-1">Stress Behavior / Reaction Function</span>
+                                    <span class="section-label block mb-1">Stress Behavior / Reaction Function</span>
                                     <span class="text-white">Unhedged conviction strikes.</span> During a duration shock (e.g. yields spike), they will aggressively short bond proxies and long-duration tech, amplifying the initial catalyst.
                                 </div>
                             </div>
                         </div>
                         <!-- Agent 5: Activist -->
-                        <div class="p-4 border-l-4 border-l-agentactivist bg-white/[0.015] rounded-r transition-colors shadow-sm">
+                        <div class="agent-card border-l-4 border-l-agentactivist p-4">
                             <div class="flex justify-between items-start mb-3 border-b border-white/5 pb-3">
                                 <div>
                                     <h4 class="text-white font-medium text-[13px] tracking-wide">Activist & Special Sits</h4>
@@ -505,15 +512,15 @@
                             </div>
                             <div class="grid grid-cols-2 gap-4 text-[11px] text-gray-400">
                                 <div>
-                                    <span class="text-gray-500 uppercase tracking-widest text-[9px] block mb-1">Philosophy & Style</span>
+                                    <span class="section-label block mb-1">Philosophy & Style</span>
                                     <span class="text-white">Corporate unlocking.</span> Uses board seats to mandate capital return & spinoffs.
                                 </div>
                                 <div>
-                                     <span class="text-gray-500 uppercase tracking-widest text-[9px] block mb-1">Instruments</span>
+                                     <span class="section-label block mb-1">Instruments</span>
                                      Concentrated Equity, VIX Calls, Options.
                                 </div>
                                 <div class="col-span-2 border-t border-white/5 pt-2 mt-1">
-                                    <span class="text-gray-500 uppercase tracking-widest text-[9px] block mb-1">Stress Behavior / Reaction Function</span>
+                                    <span class="section-label block mb-1">Stress Behavior / Reaction Function</span>
                                     <span class="text-white">Trapped structural capital.</span> Because they cannot sell their 10% stake in a target company, macro shocks force them to pay exorbitant Cost of Carry premiums on tail-hedges just to survive.
                                 </div>
                             </div>
