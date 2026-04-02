@@ -267,7 +267,7 @@
         <!-- ==========================================
              TAB 1: OVERVIEW & DNA 
              ========================================== -->
-        <div id="tab-overview" class="h-full grid grid-cols-1 xl:grid-cols-12 gap-8 animate-fade-in relative max-w-screen-2xl mx-auto items-start">
+        <div id="tab-overview" class="flex flex-col gap-8 animate-fade-in relative max-w-screen-2xl mx-auto items-start xl:grid xl:grid-cols-12">
             
             <div class="xl:col-span-4 flex flex-col space-y-8">
                 <!-- Executive Methodology & Pipeline Architecture -->
@@ -532,7 +532,7 @@
         <!-- ==========================================
              TAB 2: WAR ROOM TIMELINE 
              ========================================== -->
-        <div id="tab-warroom" class="h-full hidden grid grid-cols-1 xl:grid-cols-12 gap-8 animate-fade-in max-w-screen-2xl mx-auto items-start">
+        <div id="tab-warroom" class="hidden grid grid-cols-1 xl:grid-cols-12 gap-8 animate-fade-in max-w-screen-2xl mx-auto items-start">
             
             <!-- Left Side: Environmental Reality & Heatmap -->
             <div class="xl:col-span-4 flex flex-col space-y-8">
@@ -728,7 +728,7 @@
         <!-- ==========================================
              TAB 3: ALPHA PORTFOLIOS 
              ========================================== -->
-        <div id="tab-alpha" class="h-full hidden flex flex-col space-y-8 animate-fade-in max-w-screen-2xl mx-auto">
+        <div id="tab-alpha" class="hidden flex flex-col gap-8 animate-fade-in max-w-screen-2xl mx-auto">
             
             <!-- Alpha Board (Simulated Positioning Output) -->
             <div class="terminal-panel flex flex-col shrink-0">
@@ -884,34 +884,22 @@
         <!-- ==========================================
              TAB 4: AGENTIC 13F + COPY-CAT ALPHA
              ========================================== -->
-        <div id="tab-agentic13f" class="h-full hidden flex flex-col space-y-8 animate-fade-in max-w-screen-2xl mx-auto">
-            
-            <!-- Header Banner -->
-            <div class="terminal-panel border-terminalcyan/20 relative overflow-hidden">
-                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-terminalcyan/60 via-agentfundie/40 to-terminalcyan/10"></div>
-                <div class="panel-header text-terminalcyan flex justify-between items-center">
-                    <span class="flex items-center">
-                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path></svg>
-                        AGENTIC 13F — PROJECTED INSTITUTIONAL POSITIONING
-                    </span>
-                    <span class="text-gray-500 font-mono text-[10px]">45-DAY FILING LAG ALPHA WINDOW</span>
+        <div id="tab-agentic13f" class="hidden flex flex-col gap-6 animate-fade-in max-w-screen-2xl mx-auto">
+
+            <!-- Tab Intro Strip -->
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 px-1">
+                <div>
+                    <h2 class="text-[13px] font-semibold text-terminalcyan tracking-[0.12em] uppercase">Agentic 13F — Projected Institutional Positioning</h2>
+                    <p class="text-[11px] text-gray-500 mt-1 max-w-2xl">Synthesizes behavioral DNA + War Room outputs to infer <em class="text-gray-300 not-italic">forward positioning before the 45-day SEC filing lag resolves.</em> Highest alpha window: divergent single-agent signals.</p>
                 </div>
-                <div class="p-5 bg-white/[0.01]">
-                    <p class="text-[12px] text-gray-400 leading-relaxed max-w-4xl">
-                        <span class="text-white font-medium">What are these funds buying BEFORE the next 13F is public?</span> 
-                        This module synthesizes behavioral DNA constraints + War Room outputs to project the <em>inferred forward positioning</em> of each archetype. 
-                        The 45-day SEC filing lag creates a systematic window where this behavioral edge remains tradeable.
-                    </p>
-                    <div class="mt-4 flex flex-wrap gap-3 text-[10px] font-mono">
-                        <span class="bg-white/5 border border-white/10 px-3 py-1.5 rounded-full text-gray-300">Source: <span class="text-terminalcyan">tools/generate_agentic_13f.py</span></span>
-                        <span class="bg-white/5 border border-white/10 px-3 py-1.5 rounded-full text-gray-300">Output: <span class="text-terminalcyan">outputs/agentic_13f.json</span></span>
-                        <span class="bg-white/5 border border-white/10 px-3 py-1.5 rounded-full text-gray-300">Research: <span class="text-terminalcyan">tools/research_agent.py</span> + NewsAPI</span>
-                    </div>
+                <div class="flex flex-wrap gap-2 text-[10px] font-mono shrink-0">
+                    <span class="bg-white/[0.04] border border-white/8 px-3 py-1.5 rounded-full text-gray-400">Source: <span class="text-terminalcyan">generate_agentic_13f.py</span></span>
+                    <span class="bg-white/[0.04] border border-white/8 px-3 py-1.5 rounded-full text-gray-400">Output: <span class="text-terminalcyan">agentic_13f.json</span></span>
                 </div>
             </div>
 
             <!-- Copy-Cat Alpha Signal Board -->
-            <div class="grid grid-cols-1 xl:grid-cols-2 gap-8">
+            <div class="grid grid-cols-1 xl:grid-cols-2 gap-6">
                 
                 <!-- Divergent Alpha -->
                 <div class="terminal-panel border-neongreen/10 relative">
@@ -1034,7 +1022,7 @@
             </div>
 
             <!-- Agentic 13F Projected Holdings Table -->
-            <div class="terminal-panel flex flex-col">
+            <div class="terminal-panel flex flex-col border-t-2 border-terminalcyan/20">
                 <div class="panel-header flex justify-between items-center">
                     <span class="text-white flex items-center">
                         <svg class="w-4 h-4 mr-2 text-terminalcyan" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18M3 6h18M3 18h18"></path></svg>
