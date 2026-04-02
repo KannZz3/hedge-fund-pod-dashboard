@@ -1105,6 +1105,33 @@
         </div>
 
     </main>
+
+    <!-- ==========================================
+         GLOBAL DETAIL MODAL
+         ========================================== -->
+    <div id="detail-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4" onclick="closeModal(event)">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-black/75 backdrop-blur-sm"></div>
+        <!-- Panel -->
+        <div class="relative z-10 w-full max-w-2xl terminal-panel max-h-[85vh] flex flex-col" onclick="event.stopPropagation()">
+            <!-- Header -->
+            <div class="panel-header flex justify-between items-center shrink-0" id="modal-header">
+                <span id="modal-title" class="font-semibold text-white">Detail</span>
+                <button onclick="closeModal()" class="text-gray-500 hover:text-white transition-colors text-lg leading-none ml-4">&times;</button>
+            </div>
+            <!-- Body -->
+            <div id="modal-body" class="overflow-y-auto p-6 text-[13px] text-gray-300 leading-relaxed flex-1"></div>
+        </div>
+    </div>
+
+    <!-- Pipeline Step Tooltip -->
+    <div id="pipe-tooltip" class="fixed z-50 hidden pointer-events-none">
+        <div class="terminal-panel border border-white/10 px-4 py-3 text-[12px] max-w-xs shadow-2xl">
+            <div id="pipe-tooltip-title" class="text-white font-semibold mb-1"></div>
+            <div id="pipe-tooltip-body" class="text-gray-400 leading-snug"></div>
+        </div>
+    </div>
+
     <script>
         function switchTab(tabId) {
             ['tab-overview', 'tab-warroom', 'tab-alpha', 'tab-agentic13f'].forEach(id => {
