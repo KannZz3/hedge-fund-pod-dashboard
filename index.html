@@ -1123,22 +1123,31 @@
     <script>
         function switchTab(tabId) {
             ['tab-overview', 'tab-warroom', 'tab-alpha', 'tab-agentic13f'].forEach(id => {
-                document.getElementById(id).classList.add('hidden');
-                document.getElementById(id).classList.remove('animate-fade-in');
+                const el = document.getElementById(id);
+                if (el) {
+                    el.style.display = 'none';
+                    el.classList.remove('animate-fade-in');
+                }
             });
             ['btn-overview', 'btn-warroom', 'btn-alpha', 'btn-agentic13f'].forEach(id => {
                 let el = document.getElementById(id);
-                el.classList.remove('tab-active', 'text-white');
-                el.classList.add('text-gray-400');
+                if (el) {
+                    el.classList.remove('tab-active', 'text-white', 'border-b-2', 'border-terminalcyan');
+                    el.classList.add('text-zinc-500');
+                }
             });
             let targetTab = document.getElementById(tabId);
-            targetTab.classList.remove('hidden');
-            void targetTab.offsetWidth;
-            targetTab.classList.add('animate-fade-in');
+            if (targetTab) {
+                targetTab.style.display = '';
+                void targetTab.offsetWidth;
+                targetTab.classList.add('animate-fade-in');
+            }
             
             let btn = document.getElementById(tabId.replace('tab-', 'btn-'));
-            btn.classList.add('tab-active', 'text-white');
-            btn.classList.remove('text-gray-400');
+            if (btn) {
+                btn.classList.add('tab-active', 'text-white', 'border-b-2', 'border-terminalcyan');
+                btn.classList.remove('text-zinc-500');
+            }
             
             if (tabId === 'tab-overview' && !window.chartDrawn) { 
                 drawChart(); 
