@@ -1122,28 +1122,37 @@
 
     <script>
         function switchTab(tabId) {
-            ['tab-overview', 'tab-warroom', 'tab-alpha', 'tab-agentic13f'].forEach(id => {
+            const tabIds = ['tab-overview', 'tab-warroom', 'tab-alpha', 'tab-agentic13f'];
+            const btnIds = ['btn-overview', 'btn-warroom', 'btn-alpha', 'btn-agentic13f'];
+            
+            tabIds.forEach(id => {
                 const el = document.getElementById(id);
                 if (el) {
                     el.style.display = 'none';
+                    el.classList.add('hidden');
                     el.classList.remove('animate-fade-in');
                 }
             });
-            ['btn-overview', 'btn-warroom', 'btn-alpha', 'btn-agentic13f'].forEach(id => {
-                let el = document.getElementById(id);
+            
+            btnIds.forEach(id => {
+                const el = document.getElementById(id);
                 if (el) {
                     el.classList.remove('tab-active', 'text-white', 'border-b-2', 'border-terminalcyan');
                     el.classList.add('text-zinc-500');
                 }
             });
-            let targetTab = document.getElementById(tabId);
+            
+            const targetTab = document.getElementById(tabId);
             if (targetTab) {
+                targetTab.classList.remove('hidden');
                 targetTab.style.display = '';
+                // Multi-breakpoint layouts need to re-trigger
                 void targetTab.offsetWidth;
                 targetTab.classList.add('animate-fade-in');
             }
             
-            let btn = document.getElementById(tabId.replace('tab-', 'btn-'));
+            const targetBtnId = tabId.replace('tab-', 'btn-');
+            const btn = document.getElementById(targetBtnId);
             if (btn) {
                 btn.classList.add('tab-active', 'text-white', 'border-b-2', 'border-terminalcyan');
                 btn.classList.remove('text-zinc-500');
