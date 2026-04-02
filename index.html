@@ -44,91 +44,223 @@
     </script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
-        body { background-color: #09090b; color: #a1a1aa; }
-        
-        .terminal-panel { 
-            background: linear-gradient(180deg, #18181b 0%, #151518 100%);
-            border: 1px solid rgba(255,255,255,0.06); 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            border-radius: 0.5rem;
+        /* ── Base ─────────────────────────────────────────── */
+        *, *::before, *::after { box-sizing: border-box; }
+        body { background-color: #09090b; color: #a1a1aa; font-feature-settings: 'ss01','ss03'; }
+
+        /* ── Panels ───────────────────────────────────────── */
+        .terminal-panel {
+            background: linear-gradient(160deg, #1c1c1f 0%, #131315 100%);
+            border: 1px solid rgba(255,255,255,0.07);
+            box-shadow: 0 1px 0 0 rgba(255,255,255,0.04) inset,
+                        0 8px 32px rgba(0,0,0,0.45),
+                        0 2px 8px rgba(0,0,0,0.3);
+            border-radius: 0.625rem;
             overflow: hidden;
+            transition: box-shadow 0.2s ease;
         }
-        
+        .terminal-panel:hover {
+            box-shadow: 0 1px 0 0 rgba(255,255,255,0.05) inset,
+                        0 12px 40px rgba(0,0,0,0.55),
+                        0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        /* ── Panel Headers ────────────────────────────────── */
         .panel-header {
-            background: rgba(255,255,255,0.02);
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            padding: 1rem 1.5rem;
+            background: linear-gradient(90deg, rgba(255,255,255,0.025) 0%, rgba(255,255,255,0.01) 100%);
+            border-bottom: 1px solid rgba(255,255,255,0.055);
+            padding: 0.875rem 1.5rem;
             color: #d4d4d8;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.07em;
         }
+
+        /* ── Global Header Strip ──────────────────────────── */
         .kpi-strip {
-            background: rgba(255,255,255,0.01);
-            border-bottom: 1px solid rgba(255,255,255,0.04);
+            background: linear-gradient(180deg, #111113 0%, #0d0d0f 100%);
+            border-bottom: 1px solid rgba(255,255,255,0.055);
+            box-shadow: 0 1px 0 rgba(255,255,255,0.03);
         }
-        
-        .tab-btn { position: relative; transition: all 0.2s ease; }
-        .tab-active { color: #f4f4f5; text-shadow: 0 0 10px rgba(255,255,255,0.1); border-bottom: 2px solid #f97316; }
-        
-        /* Table Styles - Cleaner layout */
+
+        /* ── Tab Bar ──────────────────────────────────────── */
+        .tab-btn {
+            position: relative;
+            transition: color 0.18s ease;
+            padding-bottom: 2px;
+        }
+        .tab-btn::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 2px;
+            background: #f97316;
+            border-radius: 2px 2px 0 0;
+            transform: scaleX(0);
+            transition: transform 0.2s ease;
+        }
+        .tab-active { color: #f4f4f5 !important; }
+        .tab-active::after { transform: scaleX(1); }
+        .tab-btn:not(.tab-active):hover { color: #d4d4d8; }
+
+        /* ── Agent Cards ──────────────────────────────────── */
+        .agent-card {
+            border-radius: 0.375rem;
+            background: rgba(255,255,255,0.018);
+            transition: background 0.18s ease, box-shadow 0.18s ease;
+        }
+        .agent-card:hover {
+            background: rgba(255,255,255,0.032);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+        }
+
+        /* ── Tables ───────────────────────────────────────── */
         table { border-collapse: collapse; width: 100%; }
-        th { font-weight: 500; text-transform: uppercase; letter-spacing: 0.03em; border-bottom: 1px solid rgba(255,255,255,0.1); color: #71717a; padding: 1rem; }
-        tr { transition: background-color 0.15s; }
-        td { border-bottom: 1px solid rgba(255,255,255,0.03); padding: 1.25rem 1rem; }
-        
-        ::-webkit-scrollbar { width: 6px; height: 6px; }
-        ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: #3f3f46; border-radius: 3px; }
-        ::-webkit-scrollbar-thumb:hover { background: #52525b; }
-        
-        /* Calmer Badges */
-        .status-badge { 
-            display: inline-flex; 
-            align-items: center; 
-            padding: 0.25rem 0.6rem; 
-            border-radius: 0.25rem; 
-            font-weight: 500; 
-            font-size: 0.75rem; 
+        th {
+            font-weight: 600;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            color: #52525b;
+            padding: 0.875rem 1.25rem;
         }
-        
+        tr { transition: background-color 0.12s ease; }
+        td { border-bottom: 1px solid rgba(255,255,255,0.04); padding: 1.1rem 1.25rem; }
+        tbody tr:last-child td { border-bottom: none; }
+
+        /* ── Scrollbar ────────────────────────────────────── */
+        ::-webkit-scrollbar { width: 4px; height: 4px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #2d2d30; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+
+        /* ── Badges ───────────────────────────────────────── */
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.2rem 0.55rem;
+            border-radius: 0.25rem;
+            font-weight: 600;
+            font-size: 0.68rem;
+            letter-spacing: 0.04em;
+        }
+
+        /* ── Chips ────────────────────────────────────────── */
         .chip {
             display: inline-block;
-            padding: 0.15rem 0.4rem;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 0.2rem;
-            font-size: 0.65rem;
-            color: #a1a1aa;
+            padding: 0.12rem 0.45rem;
+            background: rgba(255,255,255,0.045);
+            border: 1px solid rgba(255,255,255,0.09);
+            border-radius: 0.22rem;
+            font-size: 0.62rem;
+            color: #71717a;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.06em;
+            transition: background 0.15s;
+        }
+
+        /* ── Metric Cells (KPI data) ──────────────────────── */
+        .kpi-cell {
+            background: rgba(255,255,255,0.022);
+            border: 1px solid rgba(255,255,255,0.055);
+            border-radius: 0.375rem;
+            padding: 0.75rem 1rem;
+        }
+
+        /* ── Timeline connector ───────────────────────────── */
+        .timeline-node {
+            position: absolute;
+            left: -7px;
+            top: 6px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+        }
+
+        /* ── Glow accents ─────────────────────────────────── */
+        .glow-orange { box-shadow: 0 0 20px -4px rgba(249,115,22,0.15); }
+        .glow-green  { box-shadow: 0 0 20px -4px rgba(34,197,94,0.12); }
+        .glow-cyan   { box-shadow: 0 0 20px -4px rgba(6,182,212,0.12); }
+        .glow-red    { box-shadow: 0 0 20px -4px rgba(239,68,68,0.12); }
+
+        /* ── Animations ───────────────────────────────────── */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(6px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; }
+            50%       { opacity: 0.4; }
+        }
+        .animate-fade-in  { animation: fadeUp 0.35s ease-out both; }
+        .animate-pulse    { animation: pulse-dot 2s ease-in-out infinite; }
+
+        /* ── Mono code blocks ─────────────────────────────── */
+        .code-block {
+            background: rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 0.375rem;
+            padding: 0.875rem 1rem;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.7rem;
+            line-height: 1.7;
+            color: #71717a;
+        }
+
+        /* ── Divider label ────────────────────────────────── */
+        .section-label {
+            font-size: 0.6rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #3f3f46;
         }
     </style>
 </head>
 <body class="font-sans antialiased h-screen flex flex-col overflow-hidden text-sm">
     <!-- Global Header -->
-    <header class="kpi-strip px-6 lg:px-8 py-3 flex flex-col md:flex-row justify-between items-center shrink-0 z-30 relative gap-3">
-        <div class="flex items-center space-x-4">
-            <h1 class="text-xl font-medium font-sans text-white tracking-widest flex items-center">
-                HEDGE FUND POD
-            </h1>
+    <header class="kpi-strip px-6 lg:px-10 py-3 flex flex-col md:flex-row justify-between items-center shrink-0 z-30 relative gap-3">
+        <div class="flex items-center gap-3">
+            <div class="w-5 h-5 rounded bg-bloombergorange/15 border border-bloombergorange/30 flex items-center justify-center shrink-0">
+                <div class="w-2 h-2 rounded-sm bg-bloombergorange"></div>
+            </div>
+            <h1 class="text-[13px] font-semibold font-sans text-white tracking-[0.18em] uppercase">Hedge Fund Pod</h1>
+            <span class="hidden md:block text-[10px] text-zinc-600 font-mono">// Behavioral Simulation Engine</span>
         </div>
         
-        <!-- Responsive KPI Grid -->
-        <div class="grid grid-cols-2 md:flex md:space-x-8 gap-3 font-sans text-[11px]">
-            <div class="flex flex-col"><span class="text-gray-500 uppercase tracking-wide">Macro Regime</span><span class="text-neonred font-medium mt-0.5">+35 BPS Yield Shock</span></div>
-            <div class="flex flex-col"><span class="text-gray-500 uppercase tracking-wide">Agents Enrolled</span><span class="text-white font-medium mt-0.5">5 Behavioral Models</span></div>
-            <div class="flex flex-col"><span class="text-gray-500 uppercase tracking-wide">Paradigm</span><span class="text-terminalcyan font-medium mt-0.5">Behavioral vs Factor</span></div>
-            <div class="flex flex-col"><span class="text-gray-500 uppercase tracking-wide">Protocol Status</span><span class="text-neongreen font-medium mt-0.5 flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-neongreen mr-1.5 animate-pulse"></span>Live Simulation</span></div>
+        <div class="flex items-center gap-6 md:gap-8 font-sans text-[11px]">
+            <div class="flex flex-col">
+                <span class="section-label mb-1">Macro Regime</span>
+                <span class="text-neonred font-semibold font-mono">+35 BPS Yield Shock</span>
+            </div>
+            <div class="hidden md:block w-px h-6 bg-white/8"></div>
+            <div class="flex flex-col">
+                <span class="section-label mb-1">Agents Enrolled</span>
+                <span class="text-white font-medium">5 Behavioral Models</span>
+            </div>
+            <div class="hidden md:block w-px h-6 bg-white/8"></div>
+            <div class="flex flex-col">
+                <span class="section-label mb-1">Paradigm</span>
+                <span class="text-terminalcyan font-medium">Behavioral vs Factor</span>
+            </div>
+            <div class="hidden md:block w-px h-6 bg-white/8"></div>
+            <div class="flex flex-col">
+                <span class="section-label mb-1">Protocol Status</span>
+                <span class="text-neongreen font-medium flex items-center gap-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-neongreen animate-pulse"></span>
+                    Live Simulation
+                </span>
+            </div>
         </div>
     </header>
     <!-- Tab Navigation -->
-    <nav class="bg-[#09090b]/80 backdrop-blur-md border-b border-bordergray px-6 lg:px-8 flex space-x-8 font-sans tracking-wide text-[13px] shrink-0 z-10 w-full overflow-x-auto">
-        <button onclick="switchTab('tab-overview')" id="btn-overview" class="tab-btn py-3 font-medium tab-active text-white whitespace-nowrap">OVERVIEW & MAP</button>
-        <button onclick="switchTab('tab-warroom')" id="btn-warroom" class="tab-btn py-3 font-medium hover:text-white text-gray-400 whitespace-nowrap">WAR ROOM TIMELINE</button>
-        <button onclick="switchTab('tab-alpha')" id="btn-alpha" class="tab-btn py-3 font-medium hover:text-white text-gray-400 whitespace-nowrap">ALPHA OUTPUT</button>
-        <button onclick="switchTab('tab-agentic13f')" id="btn-agentic13f" class="tab-btn py-3 font-medium hover:text-white text-gray-400 whitespace-nowrap">AGENTIC 13F</button>
+    <nav class="bg-[#0a0a0c]/95 backdrop-blur-md border-b border-white/[0.055] px-6 lg:px-10 flex gap-0 font-sans text-[12px] shrink-0 z-10 w-full overflow-x-auto">
+        <button onclick="switchTab('tab-overview')" id="btn-overview" class="tab-btn py-3.5 px-1 mr-7 font-medium tab-active text-white whitespace-nowrap">Overview &amp; Map</button>
+        <button onclick="switchTab('tab-warroom')" id="btn-warroom" class="tab-btn py-3.5 px-1 mr-7 font-medium hover:text-white text-zinc-500 whitespace-nowrap">War Room Timeline</button>
+        <button onclick="switchTab('tab-alpha')" id="btn-alpha" class="tab-btn py-3.5 px-1 mr-7 font-medium hover:text-white text-zinc-500 whitespace-nowrap">Alpha Output</button>
+        <button onclick="switchTab('tab-agentic13f')" id="btn-agentic13f" class="tab-btn py-3.5 px-1 font-medium hover:text-white text-zinc-500 whitespace-nowrap">Agentic 13F</button>
     </nav>
     <!-- Main Content Area -->
     <main class="flex-1 overflow-y-auto p-6 md:p-8 bg-[#09090b] text-gray-300">
@@ -993,48 +1125,42 @@
         }
         function drawChart() {
             if(!document.getElementById('dnaRadarChart')) return;
-            Chart.defaults.color = '#71717a'; 
-            Chart.defaults.font.family = '"Inter", sans-serif'; 
-            Chart.defaults.font.size = 11;
-            
+            Chart.defaults.color = '#52525b';
+            Chart.defaults.font.family = '"Inter", sans-serif';
+            Chart.defaults.font.size = 10;
             new Chart(document.getElementById('dnaRadarChart').getContext('2d'), {
                 type: 'radar',
                 data: {
                     labels: ['Directional Conviction', 'Leverage Capacity', 'Duration Sensitivity', 'Idiosyncratic Alpha', 'Liquidity / Turnover', 'Constraint Rigidity'],
                     datasets: [
-                        { label: 'Alpha Quant (Renaissance)', data: [20,70,20,10,100,95], borderColor: '#a855f7', backgroundColor: 'rgba(168,85,247,0.08)', borderWidth: 1.5, pointRadius: 2 },
-                        { label: 'Macro Titan (Bridgewater)', data: [100,60,100,10,40,40], borderColor: '#22c55e', backgroundColor: 'rgba(34,197,94,0.08)', borderWidth: 1.5, pointRadius: 2 },
-                        { label: 'Pod Shop (Millennium)', data: [5,100,10,80,90,98], borderColor: '#eab308', backgroundColor: 'rgba(234,179,8,0.08)', borderWidth: 1.5, pointRadius: 2 },
-                        { label: 'Fundamental Tiger (Tiger Global)', data: [60,20,40,80,15,20], borderColor: '#3b82f6', backgroundColor: 'rgba(59,130,246,0.08)', borderWidth: 1.5, pointRadius: 2 },
-                        { label: 'Activist Alpha (Elliott)', data: [80,10,30,100,5,30], borderColor: '#ef4444', backgroundColor: 'rgba(239,68,68,0.08)', borderWidth: 1.5, pointRadius: 2 }
+                        { label: 'Alpha Quant (Renaissance)', data: [20,70,20,10,100,95], borderColor: '#a855f7', backgroundColor: 'rgba(168,85,247,0.07)', borderWidth: 1.5, pointRadius: 2, pointBackgroundColor: '#a855f7' },
+                        { label: 'Macro Titan (Bridgewater)', data: [100,60,100,10,40,40], borderColor: '#22c55e', backgroundColor: 'rgba(34,197,94,0.07)', borderWidth: 1.5, pointRadius: 2, pointBackgroundColor: '#22c55e' },
+                        { label: 'Pod Shop (Millennium)', data: [5,100,10,80,90,98], borderColor: '#eab308', backgroundColor: 'rgba(234,179,8,0.07)', borderWidth: 1.5, pointRadius: 2, pointBackgroundColor: '#eab308' },
+                        { label: 'Fundamental Tiger (Tiger Global)', data: [60,20,40,80,15,20], borderColor: '#3b82f6', backgroundColor: 'rgba(59,130,246,0.07)', borderWidth: 1.5, pointRadius: 2, pointBackgroundColor: '#3b82f6' },
+                        { label: 'Activist Alpha (Elliott)', data: [80,10,30,100,5,30], borderColor: '#ef4444', backgroundColor: 'rgba(239,68,68,0.07)', borderWidth: 1.5, pointRadius: 2, pointBackgroundColor: '#ef4444' }
                     ]
                 },
-                options: { 
-                    maintainAspectRatio: false, 
-                    scales: { 
-                        r: { 
-                            grid: {color: 'rgba(255,255,255,0.05)', circular: true}, 
-                            angleLines: {color: 'rgba(255,255,255,0.05)'},
-                            ticks: {display: false}, 
-                            pointLabels: {color: '#a1a1aa', font: {size: 11, weight: '500'}} 
-                        } 
-                    }, 
-                    plugins: { 
-                        legend: { position: 'bottom', labels: { boxWidth: 8, padding: 16, font: {size: 11, family: '"Inter", sans-serif'} } } 
-                    } 
+                options: {
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            grid: { color: 'rgba(255,255,255,0.04)', circular: true },
+                            angleLines: { color: 'rgba(255,255,255,0.04)' },
+                            ticks: { display: false, backdropColor: 'transparent' },
+                            pointLabels: { color: '#71717a', font: { size: 10, weight: '500', family: '"Inter", sans-serif' } },
+                            min: 0, max: 100
+                        }
+                    },
+                    plugins: {
+                        legend: { position: 'bottom', labels: { boxWidth: 7, padding: 14, font: { size: 10.5, family: '"Inter", sans-serif' }, color: '#71717a', usePointStyle: true, pointStyleWidth: 7 } }
+                    },
+                    animation: { duration: 600, easing: 'easeInOutQuart' }
                 }
             });
         }
-        
-        const style = document.createElement('style');
-        style.innerHTML = `
-            @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
-            .animate-fade-in { animation: fadeIn 0.4s ease-out forwards; }
-        `;
-        document.head.appendChild(style);
-        
+
         window.onload = function() {
-            setTimeout(() => { if (!window.chartDrawn) { drawChart(); window.chartDrawn = true; } }, 100);
+            setTimeout(() => { if (!window.chartDrawn) { drawChart(); window.chartDrawn = true; } }, 80);
         };
     </script>
 </body>
