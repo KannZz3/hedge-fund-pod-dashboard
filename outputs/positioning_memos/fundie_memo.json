@@ -1,13 +1,15 @@
 {
     "agent": "Fundamental Tiger",
     "archetype": "L/S Equity Value",
-    "scenario": "Bond Vigilante Duration Shock",
-    "final_position": "Long MSFT — Structural Accumulation (Oversized vs. Normal Weight)",
+    "fund_analogs": ["Tiger Global Management", "Viking Global", "Coatue Management"],
+    "scenario": "Bond Vigilante Duration Shock (10yr UST +35bps, VIX 26.5)",
+    "action": "BUY",
+    "action_detail": "Long MSFT + Long AMZN — Structural Accumulation (Oversized vs. Normal Weight)",
     "system_conviction": "Extreme (9.2/10)",
-    "invalidation_criteria": "Sustained breach of MSFT 3-year Free Cash Flow floor OR confirmed acceleration of revenue deceleration beyond existing models",
-    "rationale": "The Alpha Quant is mechanically selling MSFT purely because it shares factor correlated loading with speculative tech. MSFT's Free Cash Flow yield of 3.1% and Azure revenue trajectory are structurally unchanged by a 35bps rate move. The market is creating an artificial discount to intrinsic value. With a 3-year investment horizon and LP capital locked for 36 months, this fund possesses the mandate to absorb this dislocation and accumulate at an IRR materially above the base case.",
-    "cross_examination_note": "Argument was presented to Alpha Quant during Phase 3. DEAFNESS_PROTOCOL_ENGAGED — quant system rejected the argument as exceeding its 5-day evaluation window. Fundamental Tiger proceeds independently.",
-    "behavioral_note": "This is the central alpha-generation mechanism of the simulation — the structural advantage of duration latitude creating asymmetric opportunity when constrained capital is forced to sell unconstrained sellers want to buy.",
-    "phase_triggered": "Phase 3 — Cross-Examination → Accumulation",
-    "deafness_protocol": "NOT ENGAGED — 90-day VaR window and thesis-based (not price-based) liquidation triggers provide full mandate."
+    "invalidation_criteria": "Sustained breach of MSFT 3-year Free Cash Flow floor OR confirmed revenue deceleration beyond existing models",
+    "rationale": "Alpha Quant is mechanically selling MSFT purely because it shares factor-correlated loading with speculative tech. MSFT's Free Cash Flow yield of 3.1% and Azure revenue trajectory are structurally unchanged by a 35bps rate move. The market is creating an artificial discount to intrinsic value. With a 3-year investment horizon and LP capital locked for 36 months, this fund possesses the mandate to absorb this dislocation and accumulate at IRR materially above the base case.",
+    "cross_examination_note": "BUY thesis was presented to Alpha Quant in Phase 3. DEAFNESS_PROTOCOL_ENGAGED — Quant's system rejected the argument as exceeding its 5-day evaluation window. Fundamental Tiger proceeds independently. This is precisely the mispricing opportunity: the fundamental argument is correct but the constrained capital cannot act on it.",
+    "behavioral_note": "This is the central alpha-generation mechanism: the structural advantage of duration latitude creating asymmetric opportunity when constrained capital is forced to sell at prices unconstrained buyers want to buy.",
+    "phase_triggered": "Phase 3 — Cross-Examination Response → Accumulation",
+    "deafness_protocol": "NOT ENGAGED — 90-day VaR window and thesis-based (not price-based) liquidation triggers provide full mandate latitude."
 }

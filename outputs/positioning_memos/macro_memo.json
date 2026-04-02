@@ -1,12 +1,14 @@
 {
     "agent": "Macro Titan",
     "archetype": "Discretionary Global Macro",
-    "scenario": "Bond Vigilante Duration Shock",
-    "final_position": "Short Sovereign Yields — TLT Puts + ZB Futures Short",
+    "fund_analogs": ["Bridgewater Associates", "Brevan Howard"],
+    "scenario": "Bond Vigilante Duration Shock (10yr UST +35bps, VIX 26.5)",
+    "action": "SELL",
+    "action_detail": "Short Sovereign Yields — TLT Puts + ZB Futures Short + Short Nasdaq ETF (QQQ)",
     "system_conviction": "Very High (8.7/10)",
-    "invalidation_criteria": "Dovish Central Bank pivot OR unexpected inflation deceleration data",
-    "rationale": "Catalyst is a structural regime shift, not noise. Bear steepener at 35bps over 5 sessions with VIX > 25 confirms the market is re-pricing the terminal rate. This fund expresses the view unhedged — amplifying the catalyst directionally. Long-duration tech is explicitly shorted as the primary transmission mechanism of rate repricing into equity multiples.",
-    "behavioral_note": "Unlike constrained capital pools, this fund has a 30-day VaR window and 10% monthly drawdown tolerance — providing the mandate to hold through counter-trend noise while the thesis resolves.",
-    "phase_triggered": "Phase 2 — Initial Reaction",
-    "deafness_protocol": "NOT ENGAGED — Macro Titan operates on aligned time horizon to resolve the thesis within its stated 3-12 month window."
+    "invalidation_criteria": "Dovish Central Bank pivot OR unexpected CPI deceleration > 0.5% MoM",
+    "rationale": "Catalyst is a structural regime shift: bear steepener at +35bps over 5 sessions with VIX > 25 confirms market is re-pricing terminal rate higher. Dalio Debt Cycle Framework identifies this as Phase 3 — tightening cycle transmission into equity multiple compression. Macro Titan expresses view unhedged, amplifying the catalyst directionally. Long-duration tech (QQQ, ARKK proxies) explicitly shorted as the primary transmission mechanism of rate repricing into equity multiples.",
+    "behavioral_note": "Unlike constrained capital pools, Macro Titan has a 30-day VaR window and 10% monthly drawdown tolerance — providing mandate to hold through counter-trend noise while thesis resolves. This is the Bridgewater 'Beautiful Deleveraging' thesis inverted: an unbalanced tightening is structurally bearish for duration.",
+    "phase_triggered": "Phase 2 — Independent Reaction",
+    "deafness_protocol": "NOT ENGAGED — Macro Titan operates on aligned time horizon to resolve thesis within stated 3-12 month window."
 }

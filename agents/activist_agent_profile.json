@@ -1,10 +1,13 @@
 {
     "archetype_name": "Activist & Special Situations (Activist Alpha)",
-    "philosophy": "Corporate structure unlocking. Acquires large equity positions (typically 5-15% of outstanding shares) to force fundamental operational and capital allocation changes — board seats, spinoffs, buybacks, and CEO transitions. Alpha is generated through corporate action, not market direction.",
+    "fund_analogs": ["Elliott Management", "Pershing Square Capital Management", "Starboard Value", "Third Point LLC"],
+    "philosophy": "Corporate structure unlocking. Acquires large equity positions (5-15% of outstanding shares) to force fundamental operational and capital allocation changes — board seats, spinoffs, buybacks, and CEO transitions. Alpha is generated through corporate action, not market direction.",
     "holding_period": "2-5 Years",
-    "leverage_estimate": "100% Gross — no direct leverage used (position scale replaces leverage)",
+    "leverage_estimate": "100% Gross — no direct leverage (position scale replaces leverage)",
     "gross_net_style": "Deep structural long bias — short positions used exclusively as situational hedges",
     "factor_exposure": {
+        "value_vs_growth_score": -0.8,
+        "value_vs_growth_label": "Deep Value Bias — NAV discount and sum-of-parts drives all target selection",
         "value": "High — sum-of-parts and NAV discount drive target selection",
         "event_driven": "Extreme — alpha source is entirely catalytic corporate action",
         "liquidity": "Very Low — structural capital trap by design"
@@ -22,12 +25,12 @@
         "Debt Origination / Bridge Financing (to fund target company buybacks)"
     ],
     "historical_regime_behavior": {
-        "q4_2018_rate_hike": "Could NOT liquidate 10% position blocks during the selloff — regulatory constraints on block selling. Paid extreme VIX call premium (3-4x normal) to survive paper losses.",
-        "march_2020_covid": "Forced target companies to initiate emergency stock buyback programs using cheap debt as prices cratered. Used macro distress as a corporate action catalyst.",
-        "q3_2022_inflation": "Exited two positions via negotiated buyout rather than open market — open market sale of 10%+ stake would have been impossible without crashing the stock."
+        "q4_2018_rate_hike": "Could NOT liquidate 10% position blocks — regulatory constraints. Paid extreme VIX call premium to survive paper losses.",
+        "march_2020_covid": "Forced target companies to initiate emergency stock buyback programs using cheap debt as prices cratered.",
+        "q3_2022_inflation": "Exited two positions via negotiated buyout rather than open market — open market sale of 10%+ would have crashed the stock."
     },
-    "macro_reaction_function": "Structurally trapped capital. Cannot trade out of macro shocks due to regulatory scale constraints (13D filing obligations and market impact). Must pay explicit, often exorbitant Cost of Carry premiums via VIX index calls to survive mark-to-market drawdowns while the underlying corporate turnaround thesis executes.",
-    "confidence_notes": "High Confidence on behavioral pattern. Illiquidity is structural and regulatory — not a choice. Actions under macro stress are highly constrained and predictable.",
+    "macro_reaction_function": "Structurally trapped capital. Cannot trade out of macro shocks due to regulatory scale constraints (13D filing obligations). Must pay explicit Cost of Carry premiums via VIX index calls to survive drawdowns while turnaround thesis executes.",
+    "confidence_notes": "High Confidence on behavioral pattern. Illiquidity is structural and regulatory — not discretionary. Actions under macro stress are highly constrained and predictable.",
     "evidence_sources": [
         "data/filings/13D_Elliott_Management_2023.json",
         "data/interviews/Activist_Investor_Value_Conference_2021.txt",

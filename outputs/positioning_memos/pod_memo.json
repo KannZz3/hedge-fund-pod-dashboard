@@ -1,12 +1,14 @@
 {
     "agent": "Pod Shop",
     "archetype": "Multi-Manager Market Neutral",
-    "scenario": "Bond Vigilante Duration Shock",
-    "final_position": "Rates-Neutral Hedge — Short XLK and XLF Sector ETFs",
-    "system_conviction": "Moderate (Risk-driven, not alpha-driven)",
-    "invalidation_criteria": "PM drawdowns stabilize and reverse above the -3% threshold without center risk intervention",
-    "rationale": "Center risk system has flagged rates-correlated factor exposure across 7 PM books. Hedging via XLK short (technology factor beta) and XLF short (financials rates correlation). This is not an alpha thesis — it is survival mechanics. The system does not care whether the hedge generates profit; it only cares that gross exposure is neutralized before the drawdown limit is hit.",
-    "behavioral_note": "This defensive hedging is itself contributing to downward pressure in the tech and financial sectors — creating a reinforcing feedback loop with the Quant deleveraging. Combined flow from Quant + Pod represents meaningful crowding risk in the short-tech trade.",
-    "phase_triggered": "Phase 2 — Initial Reaction",
-    "deafness_protocol": "ENGAGED — Fundamental arguments about sector value are irrelevant. The 10-day VaR window and 3% PM drawdown limit override all thesis-based reasoning."
+    "fund_analogs": ["Millennium Management", "Citadel", "Point72"],
+    "scenario": "Bond Vigilante Duration Shock (10yr UST +35bps, VIX 26.5)",
+    "action": "HEDGE",
+    "action_detail": "Factor Beta Neutralization — Short XLK (Tech Sector ETF) + Short XLF (Financials ETF)",
+    "system_conviction": "Moderate — Risk-System Driven (Not Alpha-Driven)",
+    "invalidation_criteria": "PM drawdowns stabilize and reverse above -3% threshold without center risk intervention",
+    "rationale": "Center risk system flagged rates-correlated factor exposure across 7 PM books. Hedging deployed via XLK short (technology factor beta) and XLF short (financials rates correlation). This is NOT an alpha thesis — it is survival mechanics. Millennium's risk architecture does not evaluate whether the hedge generates profit; it ensures gross exposure is neutralized before the PM drawdown limit triggers full book termination.",
+    "behavioral_note": "This defensive hedging contributes to downward pressure in tech and financial sectors — creating a reinforcing feedback loop with the Quant deleveraging. Combined flow from Quant + Pod represents significant crowding in the short-tech trade. Crowding penalty of -150bps applied to this trade by the aggregator.",
+    "phase_triggered": "Phase 2 — Independent Reaction",
+    "deafness_protocol": "ENGAGED — Fundamental arguments about sector value are irrelevant to the 10-day VaR window and 3% PM drawdown system limit."
 }

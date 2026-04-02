@@ -1,15 +1,19 @@
 {
     "archetype_name": "L/S Equity Value (Fundamental Tiger)",
-    "philosophy": "Concentrated, high-conviction investing focused purely on intrinsic free-cash-flow expansion and durable total addressable market. Deliberately willing to underperform on a 1-year basis to capture multi-year IRR. Liquidity vacuums created by mechanical sellers are viewed as structured accumulation opportunities.",
+    "fund_analogs": ["Tiger Global Management", "Viking Global Investors", "Coatue Management", "Lone Pine Capital"],
+    "philosophy": "Concentrated, high-conviction investing in structurally dominant businesses with durable TAM and compounding Free Cash Flow. Deliberately willing to underperform 1-year to capture multi-year IRR. Tiger Cub DNA: research-intensive, long-horizon, concentrated in quality tech/consumer growth.",
     "holding_period": "3-5 Years",
     "leverage_estimate": "120% Gross",
     "gross_net_style": "40-60% Long-Biased Net — structural long tilt maintained through cycles",
     "factor_exposure": {
+        "value_vs_growth_score": 0.7,
+        "value_vs_growth_label": "Growth-Quality Bias — FCF yield required but secular growth is primary screen",
         "value": "High — FCF yield is primary screening metric",
         "quality": "Extreme High — balance sheet strength is non-negotiable",
-        "momentum": "Agnostic — explicitly ignored in position sizing"
+        "momentum": "Agnostic — explicitly ignored in position sizing",
+        "growth": "High — secular revenue CAGR > 15% preferred"
     },
-    "sector_concentration": "High — top 5 positions frequently represent 40-60% of AUM",
+    "sector_concentration": "High — top 5 positions frequently represent 40-60% of AUM; TMT-heavy",
     "risk_constraints": {
         "var_window_days": 90,
         "max_drawdown_monthly": "-20.0%",
@@ -22,12 +26,12 @@
         "Long-dated LEAPS for leverage on high-conviction thesis"
     ],
     "historical_regime_behavior": {
-        "q4_2018_rate_hike": "Absorbed a 15-18% paper drawdown across core book. Added meaningfully to MSFT and AMZN at the December 2018 lows as systematic sellers created dislocation.",
-        "march_2020_covid": "Deployed substantial cash reserves into structural growth equity during the selloff. Largest 30-day deployment in fund history.",
-        "q3_2022_inflation": "Held core book through a -35% technical drawdown in quality growth. Did not reduce conviction — added to META at $95."
+        "q4_2018_rate_hike": "Absorbed 15-18% paper drawdown. Added to MSFT and AMZN at December 2018 lows as systematic sellers created dislocation.",
+        "march_2020_covid": "Deployed substantial cash reserves into structural growth equity. Largest 30-day deployment in fund history.",
+        "q3_2022_inflation": "Held core book through -35% technical drawdown in quality growth. Added to META at $95."
     },
-    "macro_reaction_function": "Absorbs systemic panic systematically. When VaR-constrained capital (Quant, Pod) is forced to mechanically liquidate structurally sound assets, the Fundamental Tiger steps in as a liquidity provider — accumulating core thesis positions at materially discounted valuations.",
-    "confidence_notes": "High Confidence. LP-enforced lockup mechanisms (typically 2-3 year lockup periods) provide the structural mandate to ignore short-term volatility. Behavior under macro stress is well-documented across Tiger Cub archetype.",
+    "macro_reaction_function": "Absorbs systemic panic systematically. VaR-constrained capital (Quant, Pod) forces mechanistic liquidation of structurally sound assets. Fundamental Tiger steps in as liquidity provider — accumulating core thesis positions at discounted valuations.",
+    "confidence_notes": "High Confidence. LP-enforced lockup periods (2-3 years) provide the structural mandate to ignore short-term volatility.",
     "evidence_sources": [
         "data/investor_letters/Tiger_Global_Q2_2022_Letter.txt",
         "data/filings/13F_Tiger_Global_Q4.json",

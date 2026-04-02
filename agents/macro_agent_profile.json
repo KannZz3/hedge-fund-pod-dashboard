@@ -1,15 +1,19 @@
 {
     "archetype_name": "Discretionary Global Macro (Macro Titan)",
-    "philosophy": "Top-down regime mapping. Expresses directional, largely unhedged convictions via global liquidity metrics, sovereign yield curves, and central bank reaction functions. Does not pick stocks — trades regimes.",
+    "fund_analogs": ["Bridgewater Associates (All Weather)", "Brevan Howard", "Soros Fund Management"],
+    "philosophy": "Top-down regime mapping. Expresses directional, largely unhedged convictions via global liquidity metrics, sovereign yield curves, and central bank reaction functions. Follows Bridgewater's 'Debt Cycle' framework — every market event is a manifestation of the long-term debt supercycle.",
     "holding_period": "3-12 Months",
     "leverage_estimate": "80% Gross (High Notional via Derivatives and Futures)",
     "gross_net_style": "100% Directional Net Bias — no neutralization",
     "factor_exposure": {
+        "value_vs_growth_score": 0,
+        "value_vs_growth_label": "Factor-Agnostic — trades regimes, not stocks",
         "duration": "Extreme — rates drive all macro equity pricing",
         "currency": "High — FX is a primary expression vehicle",
-        "commodity": "Moderate — used as regime confirmation signal"
+        "commodity": "Moderate — used as regime confirmation signal",
+        "inflation_linkage": "Very High — CPI, PCE, breakevens are primary inputs"
     },
-    "sector_concentration": "None — trades broad indices, curves, and FX pairs only",
+    "sector_concentration": "None — trades broad indices, sovereign curves, and FX pairs",
     "risk_constraints": {
         "var_window_days": 30,
         "max_drawdown_monthly": "-10.0%",
@@ -23,12 +27,12 @@
         "Broad Equity Index Options (SPX puts/calls)"
     ],
     "historical_regime_behavior": {
-        "q4_2018_rate_hike": "Aggressively shorted front-end rates via Eurodollar futures. Avoided equity fundamentals entirely. Amplified duration shock.",
-        "march_2020_covid": "Initiated massive long duration structural trades (long TLT) as fiscal response predicted rate suppression. Held through equity volatility.",
-        "q3_2022_inflation": "Largest short sovereign bond position in decade. Expressed via TLT puts and ZB futures shorts as inflation persistence was confirmed."
+        "q4_2018_rate_hike": "Aggressively shorted front-end rates via Eurodollar futures. Avoided equity fundamentals. Amplified duration shock.",
+        "march_2020_covid": "Massive long duration structural trades (long TLT) as fiscal response predicted rate suppression.",
+        "q3_2022_inflation": "Largest short sovereign bond position in a decade via TLT puts and ZB futures shorts."
     },
-    "macro_reaction_function": "Unhedged conviction amplification. During a duration shock (yields spiking), aggressively shorts bond proxies and long-duration tech ETFs — compounds the initial catalyst directionally rather than hedging.",
-    "confidence_notes": "Moderate Confidence. Discretionary nature introduces human bias and timing risk. However, structural regime bets tend to be vindicated over the 3-12 month horizon.",
+    "macro_reaction_function": "Unhedged conviction amplification. During a duration shock, aggressively shorts bond proxies and long-duration tech ETFs — compounds catalyst directionally rather than hedging.",
+    "confidence_notes": "Moderate Confidence. Discretionary nature introduces human bias and timing risk. Structural regime bets tend to be vindicated over 3-12 month horizon.",
     "evidence_sources": [
         "data/investor_letters/Soros_Fund_Management_Review.pdf",
         "data/historical_regimes/Macro_Rates_Cycle_Analog_2018.json",

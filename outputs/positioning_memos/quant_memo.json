@@ -1,12 +1,14 @@
 {
     "agent": "Alpha Quant",
     "archetype": "Systematic Stat-Arb",
-    "scenario": "Bond Vigilante Duration Shock",
-    "final_position": "Forced Gross Deleveraging — Short Basket (Broad Tech)",
+    "fund_analogs": ["Renaissance Technologies", "Two Sigma"],
+    "scenario": "Bond Vigilante Duration Shock (10yr UST +35bps, VIX 26.5)",
+    "action": "SELL",
+    "action_detail": "Forced Gross Deleveraging — Short Basket (Broad Tech via ES/NQ Futures)",
     "system_conviction": "N/A — Mechanistic (No Discretion)",
-    "invalidation_criteria": "VIX mean-reversion below 20 AND 5-day realized vol contraction",
+    "invalidation_criteria": "VIX mean-reversion below 20 AND 5-day realized vol contraction below threshold",
     "rationale": "5-day VaR window breached as realized volatility expanded to 2.4 standard deviations above the rolling mean. Algorithm flagged gross exposure at 287% as exceeding the 250% hard limit. Book is being auto-cut to 180% gross over 48 hours. Fundamental quality of underlying assets is computationally irrelevant.",
     "behavioral_note": "This liquidation is creating an artificial liquidity vacuum in large-cap tech. Assets being dumped are not impaired — only statistically correlated to the macro shock. The Fundamental Tiger archetype is expected to absorb this flow.",
-    "phase_triggered": "Phase 2 — Initial Reaction",
-    "deafness_protocol": "ENGAGED — All fundamental arguments with horizon > 5 days are rejected by the system."
+    "phase_triggered": "Phase 2 — Independent Reaction",
+    "deafness_protocol": "ENGAGED — All fundamental arguments with evaluation horizon > 5 days are rejected by the system."
 }
