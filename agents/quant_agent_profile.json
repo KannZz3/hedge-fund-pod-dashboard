@@ -1,3 +1,36 @@
 {
-    "archetype_name": "Systematic Stat-Arb (Alpha Quant)"
+    "archetype_name": "Systematic Stat-Arb (Alpha Quant)",
+    "philosophy": "Mean-reversion algorithms exploiting structural microstructure inefficiencies across thousands of liquid equity pairs. Assumes long-term fundamentals are irrelevant — if standard deviation boundaries breach, the book is cut mechanically.",
+    "holding_period": "1-5 Days",
+    "leverage_estimate": "300%+ Gross",
+    "gross_net_style": "High Gross, ~0% Net (Strict Market Neutral)",
+    "factor_exposure": {
+        "momentum": "Low / Actively Neutralized",
+        "value": "Neutral",
+        "volatility": "Short-biased (implicitly selling tails to collect stat-arb spread)"
+    },
+    "sector_concentration": "Agnostic — machine-selected across 3,000+ liquid equities",
+    "risk_constraints": {
+        "var_window_days": 5,
+        "max_drawdown_monthly": "-2.5%",
+        "correlation_limit": 0.8,
+        "forced_liquidation_trigger": "VIX > 25 OR intraday VaR breach"
+    },
+    "preferred_instruments": [
+        "High-Frequency Equity Swaps",
+        "Delta One Products",
+        "Index Futures (ES, NQ)"
+    ],
+    "historical_regime_behavior": {
+        "q4_2018_rate_hike": "De-grossed entire book within 48 hours of Fed Chair 'long way from neutral' statement. Created artificial liquidity vacuum in momentum names.",
+        "march_2020_covid": "Full halt. Correlation matrix collapsed to 1.0 — convergence trades became divergence. System unable to liquidate fast enough. Major drawdown.",
+        "q3_2022_inflation": "Rapid deleveraging of factor exposures. Exited equity swaps within 3 trading sessions as implied vol spiked."
+    },
+    "macro_reaction_function": "Blind to 5-year fundamentals. Treats duration-induced multiples contraction strictly as variance expansion. Mechanically liquidates regardless of underlying asset quality if VaR limits are breached.",
+    "confidence_notes": "Very High Confidence. Rules are universally mechanistic — tied to mathematical risk thresholds, not human discretion. Behavior is highly predictable under stress.",
+    "evidence_sources": [
+        "data/filings/13F_Renaissance_Tech_Q3.json",
+        "data/interviews/Quant_Founder_Podcast_Transcript_2023.txt",
+        "data/historical_regimes/Macro_Rates_Cycle_Analog_2018.json"
+    ]
 }

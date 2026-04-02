@@ -1,3 +1,37 @@
 {
-    "archetype_name": "Discretionary Global Macro (Macro Titan)"
+    "archetype_name": "Discretionary Global Macro (Macro Titan)",
+    "philosophy": "Top-down regime mapping. Expresses directional, largely unhedged convictions via global liquidity metrics, sovereign yield curves, and central bank reaction functions. Does not pick stocks — trades regimes.",
+    "holding_period": "3-12 Months",
+    "leverage_estimate": "80% Gross (High Notional via Derivatives and Futures)",
+    "gross_net_style": "100% Directional Net Bias — no neutralization",
+    "factor_exposure": {
+        "duration": "Extreme — rates drive all macro equity pricing",
+        "currency": "High — FX is a primary expression vehicle",
+        "commodity": "Moderate — used as regime confirmation signal"
+    },
+    "sector_concentration": "None — trades broad indices, curves, and FX pairs only",
+    "risk_constraints": {
+        "var_window_days": 30,
+        "max_drawdown_monthly": "-10.0%",
+        "correlation_limit": 1.0,
+        "forced_liquidation_trigger": "Unexpected Central Bank pivot OR thesis invalidation event"
+    },
+    "preferred_instruments": [
+        "Sovereign Bonds and Bond Futures (TLT, ZB)",
+        "G10 FX Swaps and Forwards",
+        "Commodity Futures (CL, GC)",
+        "Broad Equity Index Options (SPX puts/calls)"
+    ],
+    "historical_regime_behavior": {
+        "q4_2018_rate_hike": "Aggressively shorted front-end rates via Eurodollar futures. Avoided equity fundamentals entirely. Amplified duration shock.",
+        "march_2020_covid": "Initiated massive long duration structural trades (long TLT) as fiscal response predicted rate suppression. Held through equity volatility.",
+        "q3_2022_inflation": "Largest short sovereign bond position in decade. Expressed via TLT puts and ZB futures shorts as inflation persistence was confirmed."
+    },
+    "macro_reaction_function": "Unhedged conviction amplification. During a duration shock (yields spiking), aggressively shorts bond proxies and long-duration tech ETFs — compounds the initial catalyst directionally rather than hedging.",
+    "confidence_notes": "Moderate Confidence. Discretionary nature introduces human bias and timing risk. However, structural regime bets tend to be vindicated over the 3-12 month horizon.",
+    "evidence_sources": [
+        "data/investor_letters/Soros_Fund_Management_Review.pdf",
+        "data/historical_regimes/Macro_Rates_Cycle_Analog_2018.json",
+        "data/interviews/Druckenmiller_Stan_Keynote_2023.txt"
+    ]
 }

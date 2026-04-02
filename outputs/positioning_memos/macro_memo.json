@@ -1,0 +1,12 @@
+{
+    "agent": "Macro Titan",
+    "archetype": "Discretionary Global Macro",
+    "scenario": "Bond Vigilante Duration Shock",
+    "final_position": "Short Sovereign Yields — TLT Puts + ZB Futures Short",
+    "system_conviction": "Very High (8.7/10)",
+    "invalidation_criteria": "Dovish Central Bank pivot OR unexpected inflation deceleration data",
+    "rationale": "Catalyst is a structural regime shift, not noise. Bear steepener at 35bps over 5 sessions with VIX > 25 confirms the market is re-pricing the terminal rate. This fund expresses the view unhedged — amplifying the catalyst directionally. Long-duration tech is explicitly shorted as the primary transmission mechanism of rate repricing into equity multiples.",
+    "behavioral_note": "Unlike constrained capital pools, this fund has a 30-day VaR window and 10% monthly drawdown tolerance — providing the mandate to hold through counter-trend noise while the thesis resolves.",
+    "phase_triggered": "Phase 2 — Initial Reaction",
+    "deafness_protocol": "NOT ENGAGED — Macro Titan operates on aligned time horizon to resolve the thesis within its stated 3-12 month window."
+}

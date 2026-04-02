@@ -1,3 +1,36 @@
 {
-    "archetype_name": "Multi-Manager Market Neutral (Pod Shop)"
+    "archetype_name": "Multi-Manager Market Neutral (Pod Shop)",
+    "philosophy": "Extreme diversification achieved through factor-neutral, autonomously managed sub-pods. Each PM runs an isolated book targeting idiosyncratic alpha. Center risk management prevents correlated blowups through aggressive, non-negotiable drawdown enforcement.",
+    "holding_period": "5-20 Days",
+    "leverage_estimate": "200% Gross",
+    "gross_net_style": "+/- 2% Strict Net Bounds — violations trigger immediate forced rebalancing",
+    "factor_exposure": {
+        "beta": "Zero — hard neutralized at portfolio level",
+        "momentum": "Neutralized — factor exposure models run continuously",
+        "idiosyncratic": "Very High — all alpha must be stock-specific"
+    },
+    "sector_concentration": "Hard cap at 5% per sector — enforced daily by risk systems",
+    "risk_constraints": {
+        "var_window_days": 10,
+        "max_drawdown_monthly": "-3.0%",
+        "correlation_limit": 0.2,
+        "forced_liquidation_trigger": "PM Drawdown > 3% triggers 50% gross cut; > 5% triggers full termination"
+    },
+    "preferred_instruments": [
+        "Liquid Large-Cap Equities (top 1000 by ADV)",
+        "Sector ETF Hedges (XLF, XLK, XLE, XLV)",
+        "Single-Stock Options for defined-risk positioning"
+    ],
+    "historical_regime_behavior": {
+        "q4_2018_rate_hike": "Center risk cut PM books aggressively as factor correlations converged to 1.0 near the December lows — systematically sold quality at the bottom.",
+        "march_2020_covid": "Survived via immediate gross deleveraging (book cut from 200% to 80% in 5 sessions). Missed the V-shape recovery entirely as risk limits kept teams out.",
+        "q3_2022_inflation": "Forced sector neutralization via XLF shorts as rates sector outperformed uncontrollably. Underperformed peers who maintained directional bets."
+    },
+    "macro_reaction_function": "Drawdown survival mechanics override all fundamental judgment. When macro shocks force correlation convergence, center risk systems mechanically cut PM allocations regardless of underlying asset value — systematically reinforcing downward momentum in liquid names.",
+    "confidence_notes": "Very High Confidence. Pod center risk architecture is inflexible by design. Liquidation triggers are mathematical and fully automated. Behavior under stress is highly reproducible.",
+    "evidence_sources": [
+        "data/filings/13F_Citadel_Q1.json",
+        "data/interviews/Point72_Risk_Manager_Summit_2022.txt",
+        "data/historical_regimes/Correlation_Crisis_March2020.json"
+    ]
 }

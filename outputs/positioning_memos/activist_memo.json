@@ -1,0 +1,12 @@
+{
+    "agent": "Activist Alpha",
+    "archetype": "Activist & Special Situations",
+    "scenario": "Bond Vigilante Duration Shock",
+    "final_position": "Hold Core Equity / Buy OTM VIX Index Calls (Tail Hedge)",
+    "system_conviction": "Low — Structurally Forced Position (Not Discretionary)",
+    "invalidation_criteria": "Loss of board proxy vote in primary holding OR thesis collapse at the corporate governance level",
+    "rationale": "This fund holds an 11.3% equity stake in [core holding]. Selling this block on the open market is structurally impossible — any sale of >1% of outstanding shares requires a 13D amendment, regulatory notification, and open-market execution over multiple sessions, each of which would move the price materially against the fund. The fund is trapped. The only available risk management tool is purchasing OTM VIX index calls to cap the mark-to-market downside. This is an explicit Cost of Carry — an operating expense of the activist strategy model.",
+    "behavioral_note": "Simultaneously, this fund is using the macro distress to accelerate negotiations with the board for an emergency share repurchase program. Cheap debt and a declining stock price provide favorable conditions for the buyback thesis.",
+    "phase_triggered": "Phase 2 — Independent Reaction (No Cross-Examination Participation)",
+    "deafness_protocol": "PARTIAL — 365-day VaR window provides full thesis duration, but regulatory illiquidity overrides normal portfolio management mechanics."
+}

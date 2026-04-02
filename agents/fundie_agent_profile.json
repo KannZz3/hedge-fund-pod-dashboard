@@ -1,3 +1,36 @@
 {
-    "archetype_name": "L/S Equity Value (Fundamental Tiger)"
+    "archetype_name": "L/S Equity Value (Fundamental Tiger)",
+    "philosophy": "Concentrated, high-conviction investing focused purely on intrinsic free-cash-flow expansion and durable total addressable market. Deliberately willing to underperform on a 1-year basis to capture multi-year IRR. Liquidity vacuums created by mechanical sellers are viewed as structured accumulation opportunities.",
+    "holding_period": "3-5 Years",
+    "leverage_estimate": "120% Gross",
+    "gross_net_style": "40-60% Long-Biased Net — structural long tilt maintained through cycles",
+    "factor_exposure": {
+        "value": "High — FCF yield is primary screening metric",
+        "quality": "Extreme High — balance sheet strength is non-negotiable",
+        "momentum": "Agnostic — explicitly ignored in position sizing"
+    },
+    "sector_concentration": "High — top 5 positions frequently represent 40-60% of AUM",
+    "risk_constraints": {
+        "var_window_days": 90,
+        "max_drawdown_monthly": "-20.0%",
+        "correlation_limit": 0.9,
+        "forced_liquidation_trigger": "Thesis invalidation ONLY — price alone never triggers a sale"
+    },
+    "preferred_instruments": [
+        "Cash Equities (primary)",
+        "Strategic Block Trades for accumulation",
+        "Long-dated LEAPS for leverage on high-conviction thesis"
+    ],
+    "historical_regime_behavior": {
+        "q4_2018_rate_hike": "Absorbed a 15-18% paper drawdown across core book. Added meaningfully to MSFT and AMZN at the December 2018 lows as systematic sellers created dislocation.",
+        "march_2020_covid": "Deployed substantial cash reserves into structural growth equity during the selloff. Largest 30-day deployment in fund history.",
+        "q3_2022_inflation": "Held core book through a -35% technical drawdown in quality growth. Did not reduce conviction — added to META at $95."
+    },
+    "macro_reaction_function": "Absorbs systemic panic systematically. When VaR-constrained capital (Quant, Pod) is forced to mechanically liquidate structurally sound assets, the Fundamental Tiger steps in as a liquidity provider — accumulating core thesis positions at materially discounted valuations.",
+    "confidence_notes": "High Confidence. LP-enforced lockup mechanisms (typically 2-3 year lockup periods) provide the structural mandate to ignore short-term volatility. Behavior under macro stress is well-documented across Tiger Cub archetype.",
+    "evidence_sources": [
+        "data/investor_letters/Tiger_Global_Q2_2022_Letter.txt",
+        "data/filings/13F_Tiger_Global_Q4.json",
+        "data/interviews/Viking_Global_PM_Panel_2021.txt"
+    ]
 }

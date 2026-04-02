@@ -1,0 +1,21 @@
+{
+    "regime_id": "Q4-2018-RATE-HIKE",
+    "regime_name": "Q4 2018 Federal Reserve Rate Hike Cycle",
+    "catalyst": "Fed Chair Powell: 'interest rates are a long way from neutral' — October 2018",
+    "duration": "Oct 2018 — Dec 2018 (approx. 10 weeks)",
+    "market_impact": {
+        "spy_drawdown_pct": -19.8,
+        "ndx_drawdown_pct": -23.4,
+        "vix_peak": 36.2,
+        "peak_correlation_approx": 0.94,
+        "10yr_yield_move_bps": 38
+    },
+    "archival_flow_observations": {
+        "systematic_quant": "Massive forced deleveraging triggered by VaR breaches. Momentum books hit hardest — crowded long positions in tech liquidated indiscriminately within 48-72 hours of initial catalyst.",
+        "pod_shops": "PM books cut by center risk as drawdown limits hit across the platform. Feedback loop with systematic quant created self-reinforcing selling cascade in December.",
+        "global_macro": "Aggressively shorted front-end rates via Eurodollar futures. Several large macro funds reported their best quarter in 5 years.",
+        "fundamental_ls": "Absorbed initial drawdown (-15-20%) without reducing positions. Largest deployment month was December 2018 — bought into the lows. Outperformed significantly in H1 2019.",
+        "activist": "Could not liquidate large block positions. Purchased protective VIX calls. Engaged in behind-the-scenes negotiations for accelerated buybacks at favorable prices."
+    },
+    "analog_uses": "Primary stress test scenario for War Room simulation. Represents canonical 'mechanical seller vs. fundamental absorber' dynamic."
+}

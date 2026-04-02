@@ -1,0 +1,16 @@
+{
+    "submission_type": "13F-HR",
+    "period_of_report": "2023-09-30",
+    "filer": "Renaissance Technologies LLC (Medallion Fund analog)",
+    "cik": "0001037389",
+    "holdings_count": 3412,
+    "top_positions": [
+        {"ticker": "NVO", "weight_pct": 2.1, "shares": 4200000, "class": "EQUITY"},
+        {"ticker": "VRTX", "weight_pct": 1.8, "shares": 2800000, "class": "EQUITY"},
+        {"ticker": "ISRG", "weight_pct": 1.5, "shares": 1600000, "class": "EQUITY"}
+    ],
+    "inferred_concentration_top10_pct": 12.4,
+    "inferred_annual_turnover": 0.85,
+    "inferred_strategy": "Systematic Statistical Arbitrage",
+    "dna_extraction_notes": "Extreme diversification (3,412 positions) confirms machine-driven selection. Sub-2% concentration per name supports near-zero idiosyncratic risk tolerance. High turnover (85%+) confirms 1-5 day average hold. No discernible factor tilt — consistent with pure stat-arb."
+}

@@ -1,0 +1,12 @@
+{
+    "timestamp": "2026-04-03T00:00:00Z",
+    "source": "Simulated — fetch_newsapi.py placeholder",
+    "dominant_narrative": "Bond Vigilante Duration Shock",
+    "catalyst_description": "Sovereign yield curve bear steepening: 10yr UST +35bps over 5 sessions. Market pricing persistent inflation removing Fed easing optionality.",
+    "vix_level": 26.5,
+    "rates_10yr_yield_pct": 5.15,
+    "rates_trend": "Bear Steepener",
+    "implied_liquidity": "Draining — systematic unwinds in duration-sensitive equities confirmed",
+    "regime_classification": "RISK_OFF_DURATION_SHOCK",
+    "war_room_entry_signal": true
+}

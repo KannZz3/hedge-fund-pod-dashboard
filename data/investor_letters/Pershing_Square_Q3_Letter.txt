@@ -1,0 +1,16 @@
+[INVESTOR LETTER EXCERPT — Q3 2022]
+[Source: Pershing Square Capital Management — re-created for educational modeling purposes]
+
+Dear Investors,
+
+The third quarter served as a reminder that our structural capital position — while occasionally painful on a mark-to-market basis — is a feature, not a bug.
+
+When our position in [Target Company] declined 22% in Q3, we did not have the option to sell. Our 11.2% stake would require a 13D amendment, SEC notification, and open market execution over multiple sessions — each session moving the price materially against us.
+
+Instead, we utilized this period to engage more directly with the board, accelerating the timeline for the capital return program we had been negotiating.
+
+As of quarter-end, the board approved a $2.4 billion accelerated share repurchase — financed by the low-cost debt environment we had been recommending for 18 months. This is the mechanism of activist alpha.
+
+We also purchased protection via VIX index calls during the September volatility spike, recognizing that our inability to trade our equity positions requires an explicit, dedicated hedging budget. This Cost of Carry is a necessary operational expense — not a trading loss.
+
+[END EXCERPT]

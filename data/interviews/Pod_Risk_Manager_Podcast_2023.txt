@@ -1,0 +1,17 @@
+[PODCAST TRANSCRIPT EXCERPT]
+[Source: "Capital Allocators" podcast — Systematic Fund PM Guest, 2023]
+[Re-created for educational behavioral modeling purposes]
+
+HOST: When correlation matrices break down like they did in March 2020, how does the center risk manager actually handle the individual pods?
+
+GUEST: It is completely mechanistic. There is no discretion involved whatsoever. If a PM's book drops 3%, we cut their gross allocation by 50% immediately — same day, often same hour. If they hit 5%, we liquidate the entire pod and the PM is terminated. There is no conversation. The risk manager does not ask whether the underlying asset is Microsoft or a penny stock. The limits dictate the flow entirely.
+
+HOST: So you're telling me that in March 2020, you were selling Microsoft?
+
+GUEST: Yes. We were selling Microsoft. We were selling Visa. We were selling names that had absolutely nothing to do with the COVID thesis. The book needed to de-gross, and the liquidity was in those names. The correlation matrix had gone to 1.0 — our factor models were completely useless. Everything just went down together.
+
+HOST: And the fundamental managers who weren't in a pod structure —
+
+GUEST: They were buyers. They cleaned up. That is the fundamental tension in the system. Our risk plumbing forced us to be mechanical sellers at the exact moment that unconstrained capital could absorb everything at panic-driven prices.
+
+[END EXCERPT]

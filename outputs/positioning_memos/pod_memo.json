@@ -1,0 +1,12 @@
+{
+    "agent": "Pod Shop",
+    "archetype": "Multi-Manager Market Neutral",
+    "scenario": "Bond Vigilante Duration Shock",
+    "final_position": "Rates-Neutral Hedge — Short XLK and XLF Sector ETFs",
+    "system_conviction": "Moderate (Risk-driven, not alpha-driven)",
+    "invalidation_criteria": "PM drawdowns stabilize and reverse above the -3% threshold without center risk intervention",
+    "rationale": "Center risk system has flagged rates-correlated factor exposure across 7 PM books. Hedging via XLK short (technology factor beta) and XLF short (financials rates correlation). This is not an alpha thesis — it is survival mechanics. The system does not care whether the hedge generates profit; it only cares that gross exposure is neutralized before the drawdown limit is hit.",
+    "behavioral_note": "This defensive hedging is itself contributing to downward pressure in the tech and financial sectors — creating a reinforcing feedback loop with the Quant deleveraging. Combined flow from Quant + Pod represents meaningful crowding risk in the short-tech trade.",
+    "phase_triggered": "Phase 2 — Initial Reaction",
+    "deafness_protocol": "ENGAGED — Fundamental arguments about sector value are irrelevant. The 10-day VaR window and 3% PM drawdown limit override all thesis-based reasoning."
+}

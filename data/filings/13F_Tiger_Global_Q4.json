@@ -1,0 +1,17 @@
+{
+    "submission_type": "13F-HR",
+    "period_of_report": "2023-12-31",
+    "filer": "Tiger Global Management (Fundamental L/S analog)",
+    "cik": "0001167483",
+    "holdings_count": 47,
+    "top_positions": [
+        {"ticker": "MSFT", "weight_pct": 18.4, "shares": 9800000, "class": "EQUITY"},
+        {"ticker": "AMZN", "weight_pct": 14.2, "shares": 7200000, "class": "EQUITY"},
+        {"ticker": "META", "weight_pct": 11.7, "shares": 12400000, "class": "EQUITY"},
+        {"ticker": "GOOGL", "weight_pct": 9.8, "shares": 5600000, "class": "EQUITY"}
+    ],
+    "inferred_concentration_top10_pct": 74.1,
+    "inferred_annual_turnover": 0.28,
+    "inferred_strategy": "Concentrated L/S Equity Value",
+    "dna_extraction_notes": "47 total positions with top-10 at 74% concentration confirms high-conviction approach. Turnover of 28% implies 3-5yr average hold. Heavy FCF tech bias (MSFT/AMZN/META) confirms quality-growth investing philosophy. Long-bias net position consistent with 40-60% structural net long."
+}
