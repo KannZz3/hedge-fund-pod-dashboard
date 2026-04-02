@@ -1,0 +1,61 @@
+{
+    "generated_at": "2026-04-03T00:00:00Z",
+    "simulation_scenario": "Bond Vigilante Duration Shock",
+    "crowded_longs": [
+        {
+            "signal_type": "CROWDED SHORT",
+            "asset": "TLT / Long-Duration Bonds",
+            "direction": "SHORT",
+            "agents_aligned": ["Alpha Quant", "Macro Titan", "Pod Shop"],
+            "agent_count": 3,
+            "crowding_level": "HIGH",
+            "ev_adjustment_bps": -150,
+            "alpha_quality": "CROWDED CONSENSUS TRAP",
+            "note": "3/5 agents short TLT via different mandates. Squeeze vulnerability extreme. EV drag -150bps applied."
+        },
+        {
+            "signal_type": "CROWDED SHORT",
+            "asset": "XLK Tech Sector ETF",
+            "direction": "SHORT",
+            "agents_aligned": ["Alpha Quant", "Pod Shop"],
+            "agent_count": 2,
+            "crowding_level": "MODERATE",
+            "ev_adjustment_bps": -80,
+            "alpha_quality": "CROWDED — PROCEED WITH CAUTION",
+            "note": "2/5 agents shorting via different mechanisms. Crowding risk emerging."
+        }
+    ],
+    "divergent_alpha": [
+        {
+            "signal_type": "DIVERGENT ALPHA",
+            "asset": "MSFT Equity",
+            "direction": "LONG",
+            "sponsoring_agent": "Fundamental Tiger (Tiger Global / Viking)",
+            "agent_count": 1,
+            "crowding_level": "NEAR ZERO",
+            "ev_adjustment_bps": 0,
+            "alpha_quality": "MAX CONVICTION — DIVERGENT",
+            "rationale": "ONLY Fundamental Tiger is BUYING MSFT. Quant mechanically SELLS it (VaR). Pod ignores it (below idiosyncratic threshold). Macro shorts it as proxy. Activist cannot trade it (illiquid). Creates structural pricing asymmetry.",
+            "copy_cat_strategy": "Buy MSFT into the Quant forced deleveraging window. Exit before Quant 5-day VaR resolves and liquidity vacuum fills.",
+            "invalidation": "Quant deleveraging halts early (VIX < 20) OR MSFT FCF thesis structurally broken"
+        },
+        {
+            "signal_type": "DIVERGENT ALPHA",
+            "asset": "TIPS (Inflation-Protected Treasuries)",
+            "direction": "LONG",
+            "sponsoring_agent": "Macro Titan (Bridgewater / Brevan Howard)",
+            "agent_count": 1,
+            "crowding_level": "LOW",
+            "ev_adjustment_bps": 0,
+            "alpha_quality": "HIGH — MACRO SIGNAL ONLY",
+            "rationale": "Only Macro Titan holds TIPS via risk parity rebalancing. No other archetype has the instrument mandate. Uncrowded inflation protection with clean entry.",
+            "copy_cat_strategy": "Mirror Macro Titan TIPS long as a regime hedge. Low crowding ensures clean entry and exit.",
+            "invalidation": "Surprise CPI deceleration > 0.5% MoM OR Fed signals explicit rate cut path"
+        }
+    ],
+    "copy_cat_alpha_summary": {
+        "best_trade": "Long MSFT — Divergent Alpha (Fundamental Tiger only — 0 crowding, MAX conviction)",
+        "worst_trade": "Short TLT — Crowded Consensus Trap (3/5 agents, -150bps EV drag, extreme squeeze risk)",
+        "key_rule": "Copy-Cat Alpha is maximized when: agent_count == 1, agent has long time horizon, constrained capital is creating the artificial pricing opportunity."
+    }
+}

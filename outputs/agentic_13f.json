@@ -1,0 +1,59 @@
+{
+    "generated_at": "2026-04-03T00:00:00Z",
+    "simulation_scenario": "Bond Vigilante Duration Shock (10yr UST +35bps, VIX 26.5)",
+    "methodology": "Projected holdings derived from behavioral DNA constraints + War Room simulation output. NOT actual 13F filings. Represents INFERRED forward positioning with 45-day filing lag alpha window.",
+    "agents": {
+        "Alpha Quant (Renaissance / Two Sigma)": {
+            "action": "SELL / DELEVERAGE",
+            "projected_top_changes": [
+                {"ticker": "NQ Futures", "change": "SHORT INITIATED", "est_size_pct": -15.0, "driver": "VaR breach auto-trigger"},
+                {"ticker": "XLK ETF", "change": "SHORT INITIATED", "est_size_pct": -20.0, "driver": "Tech factor correlation spike"},
+                {"ticker": "MSFT", "change": "SOLD", "est_size_pct": -8.0, "driver": "Mechanical de-gross — factor loading"}
+            ],
+            "net_direction": "SHORT / RISK-OFF",
+            "conviction": "Mechanistic"
+        },
+        "Macro Titan (Bridgewater / Brevan Howard)": {
+            "action": "SELL BONDS / SHORT DURATION",
+            "projected_top_changes": [
+                {"ticker": "TLT", "change": "SHORT INITIATED", "est_size_pct": -20.0, "driver": "Bear steepener conviction"},
+                {"ticker": "ZB Futures", "change": "SHORT INITIATED", "est_size_pct": -15.0, "driver": "Duration shock amplification"},
+                {"ticker": "GLD", "change": "ADDED", "est_size_pct": 10.0, "driver": "All-Weather risk parity rebalance"},
+                {"ticker": "TIPS ETF", "change": "ADDED", "est_size_pct": 8.0, "driver": "Inflation persistence structural long"}
+            ],
+            "net_direction": "SHORT BONDS / LONG REAL ASSETS",
+            "conviction": "Very High"
+        },
+        "Pod Shop (Millennium / Citadel)": {
+            "action": "HEDGE / NEUTRALIZE",
+            "projected_top_changes": [
+                {"ticker": "XLK ETF", "change": "SHORT ADDED", "est_size_pct": -12.0, "driver": "Center risk factor neutralization"},
+                {"ticker": "XLF ETF", "change": "SHORT ADDED", "est_size_pct": -10.0, "driver": "Rates correlation beta hedge"},
+                {"ticker": "Healthcare Catalyst", "change": "LONG ADDED", "est_size_pct": 5.0, "driver": "Idiosyncratic binary event play"}
+            ],
+            "net_direction": "FACTOR NEUTRAL / DEFENSIVE",
+            "conviction": "Moderate (Risk-Driven)"
+        },
+        "Fundamental Tiger (Tiger Global / Viking)": {
+            "action": "BUY / ACCUMULATE",
+            "projected_top_changes": [
+                {"ticker": "MSFT", "change": "ACCUMULATED", "est_size_pct": 23.0, "driver": "FCF thesis — absorbing quant liquidation"},
+                {"ticker": "AMZN", "change": "ACCUMULATED", "est_size_pct": 14.0, "driver": "AWS re-acceleration at discounted price"},
+                {"ticker": "META", "change": "ADDED", "est_size_pct": 9.0, "driver": "Ad ROI moat + capital return discipline"},
+                {"ticker": "HYG", "change": "TRIMMED", "est_size_pct": -4.0, "driver": "Risk reduction in credit spread widening"}
+            ],
+            "net_direction": "LONG / ACCUMULATING QUALITY",
+            "conviction": "Extreme"
+        },
+        "Activist Alpha (Elliott / Pershing)": {
+            "action": "HOLD / HEDGE",
+            "projected_top_changes": [
+                {"ticker": "VIX Calls (OTM)", "change": "BOUGHT", "est_size_pct": 2.0, "driver": "Cost of Carry tail hedge"},
+                {"ticker": "Target Co. Block", "change": "HELD", "est_size_pct": 11.3, "driver": "Regulatorily illiquid — 13D constraint"},
+                {"ticker": "Target Co. Buyback", "change": "ENGINEERED", "est_size_pct": 0.0, "driver": "Board-forced $2B ASR program"}
+            ],
+            "net_direction": "STATIC BLOCK + TAIL HEDGE",
+            "conviction": "Forced / Low"
+        }
+    }
+}

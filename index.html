@@ -128,6 +128,7 @@
         <button onclick="switchTab('tab-overview')" id="btn-overview" class="tab-btn py-3 font-medium tab-active text-white whitespace-nowrap">OVERVIEW & MAP</button>
         <button onclick="switchTab('tab-warroom')" id="btn-warroom" class="tab-btn py-3 font-medium hover:text-white text-gray-400 whitespace-nowrap">WAR ROOM TIMELINE</button>
         <button onclick="switchTab('tab-alpha')" id="btn-alpha" class="tab-btn py-3 font-medium hover:text-white text-gray-400 whitespace-nowrap">ALPHA OUTPUT</button>
+        <button onclick="switchTab('tab-agentic13f')" id="btn-agentic13f" class="tab-btn py-3 font-medium hover:text-white text-gray-400 whitespace-nowrap">AGENTIC 13F</button>
     </nav>
     <!-- Main Content Area -->
     <main class="flex-1 overflow-y-auto p-6 md:p-8 bg-[#09090b] text-gray-300">
@@ -740,14 +741,238 @@
                 </div>
             </div>
         </div>
+
+        <!-- ==========================================
+             TAB 4: AGENTIC 13F + COPY-CAT ALPHA
+             ========================================== -->
+        <div id="tab-agentic13f" class="h-full hidden flex flex-col space-y-8 animate-fade-in max-w-screen-2xl mx-auto">
+            
+            <!-- Header Banner -->
+            <div class="terminal-panel border-terminalcyan/20 relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-terminalcyan/60 via-agentfundie/40 to-terminalcyan/10"></div>
+                <div class="panel-header text-terminalcyan flex justify-between items-center">
+                    <span class="flex items-center">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path></svg>
+                        AGENTIC 13F — PROJECTED INSTITUTIONAL POSITIONING
+                    </span>
+                    <span class="text-gray-500 font-mono text-[10px]">45-DAY FILING LAG ALPHA WINDOW</span>
+                </div>
+                <div class="p-5 bg-white/[0.01]">
+                    <p class="text-[12px] text-gray-400 leading-relaxed max-w-4xl">
+                        <span class="text-white font-medium">What are these funds buying BEFORE the next 13F is public?</span> 
+                        This module synthesizes behavioral DNA constraints + War Room outputs to project the <em>inferred forward positioning</em> of each archetype. 
+                        The 45-day SEC filing lag creates a systematic window where this behavioral edge remains tradeable.
+                    </p>
+                    <div class="mt-4 flex flex-wrap gap-3 text-[10px] font-mono">
+                        <span class="bg-white/5 border border-white/10 px-3 py-1.5 rounded-full text-gray-300">Source: <span class="text-terminalcyan">tools/generate_agentic_13f.py</span></span>
+                        <span class="bg-white/5 border border-white/10 px-3 py-1.5 rounded-full text-gray-300">Output: <span class="text-terminalcyan">outputs/agentic_13f.json</span></span>
+                        <span class="bg-white/5 border border-white/10 px-3 py-1.5 rounded-full text-gray-300">Research: <span class="text-terminalcyan">tools/research_agent.py</span> + NewsAPI</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copy-Cat Alpha Signal Board -->
+            <div class="grid grid-cols-1 xl:grid-cols-2 gap-8">
+                
+                <!-- Divergent Alpha -->
+                <div class="terminal-panel border-neongreen/10 relative">
+                    <div class="absolute top-0 left-0 w-full h-0.5 bg-neongreen/40"></div>
+                    <div class="panel-header text-neongreen flex justify-between items-center">
+                        <span class="flex items-center">
+                            <span class="w-2 h-2 rounded-full bg-neongreen mr-2 animate-pulse"></span>
+                            DIVERGENT ALPHA SIGNALS
+                        </span>
+                        <span class="text-gray-500 text-[10px] font-mono">ONLY 1 AGENT SEES THIS</span>
+                    </div>
+                    <div class="p-5 space-y-4">
+                        
+                        <!-- Signal 1: MSFT -->
+                        <div class="bg-neongreen/5 border border-neongreen/15 rounded-lg p-4">
+                            <div class="flex justify-between items-start mb-3">
+                                <div>
+                                    <div class="flex items-center gap-2 mb-1">
+                                        <span class="status-badge bg-neongreen/10 text-neongreen border border-neongreen/20 text-[10px]">BUY</span>
+                                        <span class="text-white font-medium text-[14px]">MSFT Equity</span>
+                                    </div>
+                                    <div class="text-[10px] text-gray-500">Sponsoring Agent: <span class="text-agentfundie">Fundamental Tiger (Tiger Global)</span></div>
+                                </div>
+                                <div class="text-right">
+                                    <div class="text-neongreen font-mono text-[18px] font-bold">MAX</div>
+                                    <div class="text-[10px] text-gray-500">EV Drag: 0 bps</div>
+                                </div>
+                            </div>
+                            <p class="text-[11px] text-gray-400 leading-relaxed border-l-2 border-neongreen/30 pl-3">
+                                <span class="text-white">Only Fundamental Tiger is BUYING.</span> Quant mechanically SELLS it (VaR breach). Pod ignores it. Macro shorts it as proxy. Activist is illiquid. This creates a structural pricing asymmetry — a fundamentally sound asset discounted by constrained capital with no ability to re-evaluate.
+                            </p>
+                            <div class="mt-3 bg-black/30 rounded p-2 text-[10px] text-terminalcyan font-mono">
+                                Strategy: BUY into Quant deleveraging window → EXIT before 5-day VaR resolves
+                            </div>
+                        </div>
+
+                        <!-- Signal 2: TIPS -->
+                        <div class="bg-white/[0.02] border border-white/8 rounded-lg p-4">
+                            <div class="flex justify-between items-start mb-3">
+                                <div>
+                                    <div class="flex items-center gap-2 mb-1">
+                                        <span class="status-badge bg-neongreen/10 text-neongreen border border-neongreen/20 text-[10px]">BUY</span>
+                                        <span class="text-white font-medium text-[14px]">TIPS (Inflation-Protected)</span>
+                                    </div>
+                                    <div class="text-[10px] text-gray-500">Sponsoring Agent: <span class="text-agentmacro">Macro Titan (Bridgewater)</span></div>
+                                </div>
+                                <div class="text-right">
+                                    <div class="text-neongreen font-mono text-[18px] font-bold">HIGH</div>
+                                    <div class="text-[10px] text-gray-500">EV Drag: 0 bps</div>
+                                </div>
+                            </div>
+                            <p class="text-[11px] text-gray-400 leading-relaxed border-l-2 border-agentmacro/40 pl-3">
+                                Only Bridgewater's All-Weather risk parity model holds TIPS via rebalancing mandate. No other archetype has this instrument in scope. Uncrowded inflation-protection with clean entry/exit.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Crowded Longs -->
+                <div class="terminal-panel border-neonred/10 relative">
+                    <div class="absolute top-0 left-0 w-full h-0.5 bg-neonred/40"></div>
+                    <div class="panel-header text-neonred flex justify-between items-center">
+                        <span class="flex items-center">
+                            <span class="w-2 h-2 rounded-full bg-neonred mr-2 animate-pulse"></span>
+                            CROWDED CONSENSUS TRAPS
+                        </span>
+                        <span class="text-gray-500 text-[10px] font-mono">AVOID / SIZE DOWN</span>
+                    </div>
+                    <div class="p-5 space-y-4">
+
+                        <!-- Crowded 1: TLT -->
+                        <div class="bg-red-950/15 border border-neonred/20 rounded-lg p-4">
+                            <div class="flex justify-between items-start mb-3">
+                                <div>
+                                    <div class="flex items-center gap-2 mb-1">
+                                        <span class="status-badge bg-neonred/10 text-neonred border border-neonred/20 text-[10px]">SHORT</span>
+                                        <span class="text-white font-medium text-[14px]">TLT / Long-Duration Bonds</span>
+                                    </div>
+                                    <div class="text-[10px] text-gray-500">Aligned: <span class="text-agentquant">Quant</span> · <span class="text-agentmacro">Macro</span> · <span class="text-agentpod">Pod</span> — <span class="text-neonred font-medium">3 of 5 agents</span></div>
+                                </div>
+                                <div class="text-right">
+                                    <div class="text-neonred font-mono text-[18px] font-bold">HIGH</div>
+                                    <div class="text-[10px] text-neonred font-mono">-150 bps EV Drag</div>
+                                </div>
+                            </div>
+                            <p class="text-[11px] text-gray-400 leading-relaxed border-l-2 border-neonred/30 pl-3">
+                                <span class="text-white">CONSENSUS TRAP:</span> 3/5 archetypes are short TLT via different mechanisms simultaneously. Extreme short-squeeze vulnerability. When one agent's VaR resolves and they cover, the cascade could be violent. EV heavily penalized.
+                            </p>
+                        </div>
+
+                        <!-- Crowded 2: XLK -->
+                        <div class="bg-white/[0.02] border border-bloombergorange/15 rounded-lg p-4">
+                            <div class="flex justify-between items-start mb-3">
+                                <div>
+                                    <div class="flex items-center gap-2 mb-1">
+                                        <span class="status-badge bg-neonred/10 text-neonred border border-neonred/20 text-[10px]">SHORT</span>
+                                        <span class="text-white font-medium text-[14px]">XLK Tech Sector ETF</span>
+                                    </div>
+                                    <div class="text-[10px] text-gray-500">Aligned: <span class="text-agentquant">Quant</span> · <span class="text-agentpod">Pod</span> — <span class="text-bloombergorange font-medium">2 of 5 agents</span></div>
+                                </div>
+                                <div class="text-right">
+                                    <div class="text-bloombergorange font-mono text-[18px] font-bold">MOD</div>
+                                    <div class="text-[10px] text-bloombergorange font-mono">-80 bps EV Drag</div>
+                                </div>
+                            </div>
+                            <p class="text-[11px] text-gray-400 leading-relaxed border-l-2 border-bloombergorange/30 pl-3">
+                                2/5 agents shorting from different mandates (VaR trigger vs. factor hedge). Moderate crowding risk. Proceed with reduced sizing.
+                            </p>
+                        </div>
+
+                        <!-- Rule Box -->
+                        <div class="bg-white/[0.02] border border-white/8 rounded p-3">
+                            <div class="text-[9px] text-gray-500 uppercase tracking-widest mb-2">Copy-Cat Alpha Rule</div>
+                            <p class="text-[11px] text-gray-300 leading-snug">
+                                Alpha is maximized when <span class="text-white font-medium">agent_count == 1</span> (divergent) and the sponsoring agent has a <span class="text-terminalcyan">long time horizon</span>. Avoid trades where <span class="text-neonred">agent_count ≥ 3</span> — these are consensus traps with extreme squeeze risk.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Agentic 13F Projected Holdings Table -->
+            <div class="terminal-panel flex flex-col">
+                <div class="panel-header flex justify-between items-center">
+                    <span class="text-white flex items-center">
+                        <svg class="w-4 h-4 mr-2 text-terminalcyan" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18M3 6h18M3 18h18"></path></svg>
+                        PROJECTED HOLDINGS — AGENTIC 13F TRACKER
+                    </span>
+                    <span class="text-gray-500 font-mono text-[10px]">INFERRED · NOT ACTUAL FILINGS</span>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left font-sans text-sm whitespace-nowrap">
+                        <thead class="bg-white/[0.01]">
+                            <tr>
+                                <th class="text-xs">Agent (Fund Analog)</th>
+                                <th class="text-xs text-center border-l border-white/5">Action</th>
+                                <th class="text-xs border-l border-white/5">Top Projected Change</th>
+                                <th class="text-xs text-center border-l border-white/5">Est. Size</th>
+                                <th class="text-xs border-l border-white/5">Behavioral Driver</th>
+                                <th class="text-xs text-center border-l border-white/5">Net Direction</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-white/5 text-[12px]">
+                            <tr class="hover:bg-white/[0.02] transition-colors">
+                                <td class="px-6 py-4"><div class="flex items-center"><span class="w-2 h-2 rounded-full bg-agentquant mr-2"></span><div><div class="text-white font-medium">Alpha Quant</div><div class="text-[10px] text-gray-500">Renaissance / Two Sigma</div></div></div></td>
+                                <td class="px-6 text-center border-l border-white/5"><span class="status-badge bg-neonred/10 text-neonred border border-neonred/20 text-[10px]">SELL</span></td>
+                                <td class="px-6 border-l border-white/5"><span class="text-neonred">XLK Short</span> · NQ Futures Short · MSFT Sold</td>
+                                <td class="px-6 text-center border-l border-white/5 font-mono text-neonred">-20%</td>
+                                <td class="px-6 border-l border-white/5 text-gray-400 text-[11px]">VaR breach auto-trigger — mechanistic deleveraging</td>
+                                <td class="px-6 text-center border-l border-white/5"><span class="text-neonred font-medium text-[10px]">SHORT / RISK-OFF</span></td>
+                            </tr>
+                            <tr class="hover:bg-white/[0.02] transition-colors">
+                                <td class="px-6 py-4"><div class="flex items-center"><span class="w-2 h-2 rounded-full bg-agentmacro mr-2"></span><div><div class="text-white font-medium">Macro Titan</div><div class="text-[10px] text-gray-500">Bridgewater / Brevan Howard</div></div></div></td>
+                                <td class="px-6 text-center border-l border-white/5"><span class="status-badge bg-neonred/10 text-neonred border border-neonred/20 text-[10px]">SELL</span></td>
+                                <td class="px-6 border-l border-white/5"><span class="text-neonred">TLT Short</span> · ZB Futures Short · <span class="text-neongreen">GLD +10%</span> · <span class="text-neongreen">TIPS +8%</span></td>
+                                <td class="px-6 text-center border-l border-white/5 font-mono text-neonred">-20% TLT</td>
+                                <td class="px-6 border-l border-white/5 text-gray-400 text-[11px]">Debt Cycle Bear Steepener — Phase 3 conviction</td>
+                                <td class="px-6 text-center border-l border-white/5"><span class="text-agentmacro font-medium text-[10px]">SHORT BONDS / LONG REAL</span></td>
+                            </tr>
+                            <tr class="hover:bg-white/[0.02] transition-colors">
+                                <td class="px-6 py-4"><div class="flex items-center"><span class="w-2 h-2 rounded-full bg-agentpod mr-2"></span><div><div class="text-white font-medium">Pod Shop</div><div class="text-[10px] text-gray-500">Millennium / Citadel / Point72</div></div></div></td>
+                                <td class="px-6 text-center border-l border-white/5"><span class="status-badge bg-bloombergorange/10 text-bloombergorange border border-bloombergorange/20 text-[10px]">HEDGE</span></td>
+                                <td class="px-6 border-l border-white/5"><span class="text-neonred">XLK Short -12%</span> · <span class="text-neonred">XLF Short -10%</span> · Healthcare +5%</td>
+                                <td class="px-6 text-center border-l border-white/5 font-mono text-bloombergorange">-12% XLK</td>
+                                <td class="px-6 border-l border-white/5 text-gray-400 text-[11px]">Center risk factor neutralization — survival mechanics</td>
+                                <td class="px-6 text-center border-l border-white/5"><span class="text-agentpod font-medium text-[10px]">FACTOR NEUTRAL</span></td>
+                            </tr>
+                            <tr class="hover:bg-white/[0.02] transition-colors bg-neongreen/[0.02]">
+                                <td class="px-6 py-4"><div class="flex items-center"><span class="w-2 h-2 rounded-full bg-agentfundie mr-2"></span><div><div class="text-white font-medium">Fundamental Tiger</div><div class="text-[10px] text-gray-500">Tiger Global / Viking Global</div></div></div></td>
+                                <td class="px-6 text-center border-l border-white/5"><span class="status-badge bg-neongreen/10 text-neongreen border border-neongreen/20 text-[10px]">BUY</span></td>
+                                <td class="px-6 border-l border-white/5"><span class="text-neongreen font-medium">MSFT +23%</span> · <span class="text-neongreen">AMZN +14%</span> · <span class="text-neongreen">META +9%</span> · HYG -4%</td>
+                                <td class="px-6 text-center border-l border-white/5 font-mono text-neongreen">+23% MSFT</td>
+                                <td class="px-6 border-l border-white/5 text-gray-400 text-[11px]">FCF thesis — absorbing Quant forced liquidation vacuum</td>
+                                <td class="px-6 text-center border-l border-white/5"><span class="text-neongreen font-bold text-[10px]">LONG / ACCUMULATE ★</span></td>
+                            </tr>
+                            <tr class="hover:bg-white/[0.02] transition-colors">
+                                <td class="px-6 py-4"><div class="flex items-center"><span class="w-2 h-2 rounded-full bg-agentactivist mr-2"></span><div><div class="text-white font-medium">Activist Alpha</div><div class="text-[10px] text-gray-500">Elliott / Pershing Square</div></div></div></td>
+                                <td class="px-6 text-center border-l border-white/5"><span class="status-badge bg-bloombergorange/10 text-bloombergorange border border-bloombergorange/20 text-[10px]">HEDGE</span></td>
+                                <td class="px-6 border-l border-white/5">VIX Calls (OTM) +2% · Core Block HELD · Board ASR Program</td>
+                                <td class="px-6 text-center border-l border-white/5 font-mono text-gray-500">+2% VIX</td>
+                                <td class="px-6 border-l border-white/5 text-gray-400 text-[11px]">Regulatorily trapped — 13D constraint prevents liquidation</td>
+                                <td class="px-6 text-center border-l border-white/5"><span class="text-agentactivist font-medium text-[10px]">STATIC + HEDGE</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="px-6 py-3 border-t border-white/5 bg-white/[0.01]">
+                    <p class="text-[10px] text-gray-600 font-mono">⚠ DISCLAIMER: Agentic 13F is a behavioral inference model. Not actual SEC filings. For educational and research purposes only.</p>
+                </div>
+            </div>
+        </div>
+
     </main>
     <script>
         function switchTab(tabId) {
-            ['tab-overview', 'tab-warroom', 'tab-alpha'].forEach(id => {
+            ['tab-overview', 'tab-warroom', 'tab-alpha', 'tab-agentic13f'].forEach(id => {
                 document.getElementById(id).classList.add('hidden');
                 document.getElementById(id).classList.remove('animate-fade-in');
             });
-            ['btn-overview', 'btn-warroom', 'btn-alpha'].forEach(id => {
+            ['btn-overview', 'btn-warroom', 'btn-alpha', 'btn-agentic13f'].forEach(id => {
                 let el = document.getElementById(id);
                 el.classList.remove('tab-active', 'text-white');
                 el.classList.add('text-gray-400');
@@ -775,13 +1000,13 @@
             new Chart(document.getElementById('dnaRadarChart').getContext('2d'), {
                 type: 'radar',
                 data: {
-                    labels: ['Net Directional Bias', 'Gross Capacity', 'Duration Sensitivity', 'Idiosyncratic Factor', 'Turnover Velocity', 'Cost of Carry Tolerance'],
+                    labels: ['Directional Conviction', 'Leverage Capacity', 'Duration Sensitivity', 'Idiosyncratic Alpha', 'Liquidity / Turnover', 'Constraint Rigidity'],
                     datasets: [
-                        { label: 'Alpha Quant', data: [20,70,20,10,100,20], borderColor: '#a855f7', backgroundColor: 'rgba(168,85,247,0.08)', borderWidth: 1.5, pointRadius: 1 },
-                        { label: 'Macro Titan', data: [100,60,100,10,40,60], borderColor: '#22c55e', backgroundColor: 'rgba(34,197,94,0.08)', borderWidth: 1.5, pointRadius: 1 },
-                        { label: 'Pod Manager', data: [0,100,10,80,90,10], borderColor: '#eab308', backgroundColor: 'rgba(234,179,8,0.08)', borderWidth: 1.5, pointRadius: 1 },
-                        { label: 'Fundamental Tiger', data: [60,20,40,80,20,20], borderColor: '#3b82f6', backgroundColor: 'rgba(59,130,246,0.08)', borderWidth: 1.5, pointRadius: 1 },
-                        { label: 'Activist Alpha', data: [80,10,30,100,10,100], borderColor: '#ef4444', backgroundColor: 'rgba(239,68,68,0.08)', borderWidth: 1.5, pointRadius: 1 }
+                        { label: 'Alpha Quant (Renaissance)', data: [20,70,20,10,100,95], borderColor: '#a855f7', backgroundColor: 'rgba(168,85,247,0.08)', borderWidth: 1.5, pointRadius: 2 },
+                        { label: 'Macro Titan (Bridgewater)', data: [100,60,100,10,40,40], borderColor: '#22c55e', backgroundColor: 'rgba(34,197,94,0.08)', borderWidth: 1.5, pointRadius: 2 },
+                        { label: 'Pod Shop (Millennium)', data: [5,100,10,80,90,98], borderColor: '#eab308', backgroundColor: 'rgba(234,179,8,0.08)', borderWidth: 1.5, pointRadius: 2 },
+                        { label: 'Fundamental Tiger (Tiger Global)', data: [60,20,40,80,15,20], borderColor: '#3b82f6', backgroundColor: 'rgba(59,130,246,0.08)', borderWidth: 1.5, pointRadius: 2 },
+                        { label: 'Activist Alpha (Elliott)', data: [80,10,30,100,5,30], borderColor: '#ef4444', backgroundColor: 'rgba(239,68,68,0.08)', borderWidth: 1.5, pointRadius: 2 }
                     ]
                 },
                 options: { 
