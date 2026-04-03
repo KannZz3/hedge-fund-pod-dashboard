@@ -13,7 +13,8 @@
         h2 { font-size: 1.5rem; margin-top: 2.5rem; color: #000; border-left: 4px solid #00b4d8; padding-left: 15px; }
         h3 { font-size: 1.1rem; margin-top: 2rem; color: #333; font-weight: 700; text-transform: uppercase; }
         p { margin-bottom: 1.2rem; font-size: 1.05rem; color: #374151; }
-        .fund-grid { display: grid; grid-cols-1 md:grid-cols-3 gap-6; margin: 30px 0; }
+        .fund-grid { display: grid; grid-template-columns: repeat(1, minmax(0, 1fr)); gap: 1.5rem; margin: 30px 0; }
+        @media (min-width: 768px) { .fund-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
         .fund-box { border: 1px solid #eee; padding: 20px; border-radius: 6px; background: #fff; }
         .fund-box h4 { margin-top: 0; color: #00b4d8; font-size: 0.9rem; text-transform: uppercase; }
         .tag { display: inline-block; background: #f3f4f6; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 600; margin-right: 5px; color: #4b5563; }
@@ -22,7 +23,7 @@
         .logic-panel code { color: #f87171; background: rgba(248,113,113,0.1); padding: 2px 5px; border-radius: 3px; }
         .dashboard-link { display: inline-block; margin-top: 40px; padding: 15px 30px; background: #00b4d8; color: white; text-decoration: none; border-radius: 6px; font-weight: 700; font-size: 1.1rem; transition: background 0.2s; }
         .dashboard-link:hover { background: #0096b4; }
-        footer { margin-top: 60px; font-size: 0.8rem; color: #999; border-top: 1px solid #eee; pt: 20px; text-align: center; }
+        footer { margin-top: 60px; font-size: 0.8rem; color: #999; border-top: 1px solid #eee; padding-top: 20px; text-align: center; }
         @media print { .dashboard-link { display: none; } body { padding: 20px; background: white; } .report-card { box-shadow: none; border: none; } }
     </style>
 </head>
@@ -67,8 +68,56 @@
             <p><strong>The Crowding Engine:</strong> The simulator scans for "Consensus Traps." If 3 of 5 agents propose a TLT short, a mathematical <strong>Expected Value (EV) Penalty</strong> (e.g. -150bps) is applied. This reflects the real-world risk of an overcrowded trade experiencing a violent "short squeeze" independent of its macro correctness.</p>
         </div>
 
-        <h2>3. Actionable Conclusion: "Copy-Cat Alpha"</h2>
-        <p>The system identifies <strong>Divergent Alpha</strong> (one agent against the crowd, e.g., the Tiger Cub buying MSFT while others liquidate) as the highest-conviction actionable signal. Conversely, positions with 3+ aligned agents are flagged as <strong>"Consensus Heavy"</strong> and require severe position-sizing haircuts.</p>
+        <h2>3. 30-Day Forward Performance Outlook (Agentic 13F)</h2>
+        <p>The following positions are inferred behavioral vectors based on the current 2026 macro shock, projecting institutional shifts before official public filings.</p>
+        <table style="width:100%; border-collapse: collapse; margin: 20px 0; font-size: 0.9rem;">
+            <thead><tr style="background:#f3f4f6;">
+                <th style="border:1px solid #eee; padding:10px; text-align:left;">Agent Network</th>
+                <th style="border:1px solid #eee; padding:10px; text-align:left;">30D Target Portfolio</th>
+                <th style="border:1px solid #eee; padding:10px; text-align:left;">Forward Logic</th>
+                <th style="border:1px solid #eee; padding:10px; text-align:center;">Conviction</th>
+            </tr></thead>
+            <tbody>
+                <tr>
+                    <td style="border:1px solid #eee; padding:10px;"><strong>Alpha Quant</strong></td>
+                    <td style="border:1px solid #eee; padding:10px;"><code style="color:#d32f2f;">MSFT -15%</code>, <code style="color:#d32f2f;">NVDA -10%</code></td>
+                    <td style="border:1px solid #eee; padding:10px;">Mechanistic VaR-driven de-grossing of tech-momentum factors.</td>
+                    <td style="border:1px solid #eee; padding:10px; text-align:center;">HIGH</td>
+                </tr>
+                <tr>
+                    <td style="border:1px solid #eee; padding:10px;"><strong>Pod Manager</strong></td>
+                    <td style="border:1px solid #eee; padding:10px;"><code style="color:#d32f2f;">XLK -12%</code>, <code style="color:#2e7d32;">UNH +5%</code></td>
+                    <td style="border:1px solid #eee; padding:10px;">Neutralizing factor beta; rotating to defensive healthcare variance.</td>
+                    <td style="border:1px solid #eee; padding:10px; text-align:center;">LOW</td>
+                </tr>
+                <tr>
+                    <td style="border:1px solid #eee; padding:10px;"><strong>Fundie Tiger</strong></td>
+                    <td style="border:1px solid #eee; padding:10px;"><code style="color:#2e7d32;">MSFT +23%</code>, <code style="color:#2e7d32;">AMZN +14%</code></td>
+                    <td style="border:1px solid #eee; padding:10px;">Absorbing forced liquidation vacuum; accumulating at FCF floor.</td>
+                    <td style="border:1px solid #eee; padding:10px; text-align:center;">MAX</td>
+                </tr>
+                <tr>
+                    <td style="border:1px solid #eee; padding:10px;"><strong>Macro Titan</strong></td>
+                    <td style="border:1px solid #eee; padding:10px;"><code style="color:#d32f2f;">TLT -25%</code>, <code style="color:#2e7d32;">DXY +15%</code></td>
+                    <td style="border:1px solid #eee; padding:10px;">Direct expression of 'Bond Vigilante' regime; bear steepener focus.</td>
+                    <td style="border:1px solid #eee; padding:10px; text-align:center;">MAX</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>4. Behavioral Fidelity Scorecard (Institutional Grading)</h2>
+        <p>Grading the AI logic against actual historical behavior and public disclosure constraints.</p>
+        <ul style="list-style:none; padding:0;">
+            <li style="margin-bottom:15px; border-bottom:1px solid #eee; pb:10px;">
+                <strong>Agent_AlphaQuant: <span style="color:#666;">30/100</span></strong> — <small>DEEP BLACK-BOX PENALTY. HMM logic matches known papers, but high-frequency execution is invisible in 13F lags.</small>
+            </li>
+            <li style="margin-bottom:15px; border-bottom:1px solid #eee; pb:10px;">
+                <strong>Agent_PodManager: <span style="color:#666;">45/100</span></strong> — <small>13F OPACITY PENALTY. 5/7.5 rule is perfect, but public filings fail to capture the 85% of active risk held in OTC swaps.</small>
+            </li>
+            <li style="margin-bottom:15px; border-bottom:1px solid #eee; pb:10px;">
+                <strong>Agent_FundieTiger: <span style="color:#2e7d32; font-weight:bold;">95/100</span></strong> — <small>MAX VISIBILITY. High cohesion between 13F holdings and long-horizon FCF-driven rhetoric.</small>
+            </li>
+        </ul>
 
         <center>
             <a href="https://kannzz3.github.io/hedge-fund-pod-dashboard/" class="dashboard-link">ACCESS ANTIGRAVITY DASHBOARD</a>

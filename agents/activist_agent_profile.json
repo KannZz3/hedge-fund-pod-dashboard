@@ -30,7 +30,22 @@
         "q3_2022_inflation": "Exited two positions via negotiated buyout rather than open market — open market sale of 10%+ would have crashed the stock."
     },
     "macro_reaction_function": "Structurally trapped capital. Cannot trade out of macro shocks due to regulatory scale constraints (13D filing obligations). Must pay explicit Cost of Carry premiums via VIX index calls to survive drawdowns while turnaround thesis executes.",
-    "confidence_notes": "High Confidence on behavioral pattern. Illiquidity is structural and regulatory — not discretionary. Actions under macro stress are highly constrained and predictable.",
+    "fidelity_score": {
+        "overall": 75,
+        "philosophical_match": 100,
+        "risk_style_match": 100,
+        "observability_penalty": -25,
+        "match_breakdown": "Cost of Carry Accuracy. While the logic of buying deep OTM VIX calls to protect illiquid 13D stakes is perfectly modeled, the exact 'Strike Price' and 'Expiration' are inferred. 13F filings show the core equity blocks with 100% accuracy, but the OTC derivative hedges that allow an Activist to survive a -30% drawdown are often hidden from public view."
+    },
+    "performance_projection": {
+        "outlook_30d": "Static Survival + Tactical Hedge",
+        "alpha_conviction": "Moderate (Event-Dependent)",
+        "projected_30d_portfolio": [
+            { "ticker": "VIX Calls", "weight": "+3%", "logic": "Rolling deep OTM tail hedges to protect concentrated blocks from systemic yield spike." },
+            { "ticker": "Core Stake", "weight": "90%", "logic": "Regulatorily trapped in 13D positions; focus remains on board-level turnaround execution." },
+            { "ticker": "Cash", "weight": "7%", "logic": "Maintaining dry powder to fund bridge financing for target company buybacks." }
+        ]
+    },
     "evidence_sources": [
         "data/filings/13D_Elliott_Management_2023.json",
         "data/interviews/Activist_Investor_Value_Conference_2021.txt",

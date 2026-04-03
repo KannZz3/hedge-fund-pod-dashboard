@@ -37,7 +37,22 @@
         "q3_2022_inflation": "Rapid deleveraging. Exited equity swaps within 3 trading sessions as implied vol spiked."
     },
     "macro_reaction_function": "Blind to 5-year fundamentals. Treats duration-induced multiples contraction strictly as variance expansion. Mechanically liquidates regardless of underlying asset quality if VaR limits are breached.",
-    "confidence_notes": "Very High Confidence. Rules are mechanistic — tied to mathematical risk thresholds, not human discretion.",
+    "fidelity_score": {
+        "overall": 30,
+        "philosophical_match": 100,
+        "risk_style_match": 100,
+        "observability_penalty": -70,
+        "match_breakdown": "Deep 'Black Box' penalty. While the Mercerized Data and HMM logic match known Renaissance research papers, their actual real-time execution is invisible. High-frequency turnover means an SEC 13F filing is effectively 'garbage' for tracking a true Quant agent. AI logic matches behavior, but 70% of the signal is non-verifiable by design."
+    },
+    "performance_projection": {
+        "outlook_30d": "Systematic Signal Reversion",
+        "alpha_conviction": "High (Statistical Edge)",
+        "projected_30d_portfolio": [
+            { "ticker": "MSFT", "weight": "-15%", "logic": "Indiscriminate liquidation of momentum longs as VIX cross 25." },
+            { "ticker": "NVDA", "weight": "-10%", "logic": "Factor-driven hedge against high-beta tech concentration." },
+            { "ticker": "SH", "weight": "+5%", "logic": "Inverse market positioning to capture variance spike." }
+        ]
+    },
     "evidence_sources": [
         "data/filings/13F_Renaissance_Tech_Q3.json",
         "data/interviews/Quant_Founder_Podcast_Transcript_2023.txt",

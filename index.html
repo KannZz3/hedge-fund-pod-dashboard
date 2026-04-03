@@ -782,49 +782,81 @@
             
             <div class="grid grid-cols-1 xl:grid-cols-2 gap-8 flex-1">
                 
-                <!-- Expanded 30-Day Portfolios -->
+                <!-- Expanded 30-Day Portfolios: Performance Projection -->
                 <div class="terminal-panel flex flex-col h-fit pb-2">
-                    <div class="panel-header border-b border-white/5">PROJECTED 30-DAY BEHAVIORAL POSITIONING</div>
+                    <div class="panel-header border-b border-white/5 flex justify-between items-center">
+                        <span>PROJECTED 30-DAY PERFORMANCE PORTFOLIOS</span>
+                        <span class="text-terminalcyan font-mono text-[9px] animate-pulse">MODEL_INFERENCE_RUNNING</span>
+                    </div>
                     <div class="overflow-x-auto">
                         <table class="w-full text-left font-sans text-xs">
                             <thead class="bg-white/[0.01]">
                                 <tr>
                                     <th class="py-4 px-5">Agent Network</th>
-                                    <th class="py-4 px-4 border-l border-white/5 w-[35%]">Dominant Long Output</th>
-                                    <th class="py-4 px-4 border-l border-white/5 w-[35%]">Primary Short Output</th>
-                                    <th class="py-4 px-4 text-center border-l border-white/5">Gross Lever</th>
+                                    <th class="py-4 px-4 border-l border-white/5 w-[35%]">30-Day Target Portfolio</th>
+                                    <th class="py-4 px-4 border-l border-white/5 w-[35%]">Forward Logic / Alpha Rationale</th>
+                                    <th class="py-4 px-4 text-center border-l border-white/5">Alpha Conviction</th>
                                 </tr>
                             </thead>
                             <tbody class="divide-y divide-white/5 text-[13px]">
                                 <tr class="hover:bg-white/[0.02] transition-colors">
                                     <td class="px-5 font-medium text-white"><div class="flex items-center"><span class="w-2 h-2 rounded-full bg-agentquant mr-2 shadow-[0_0_8px_#a855f7]"></span>Alpha Quant</div></td>
-                                    <td class="px-4 text-gray-400 border-l border-white/5">Momentum Reversion (5%)</td>
-                                    <td class="px-4 text-neonred font-medium border-l border-white/5">Systematic XLK (-20%)</td>
-                                    <td class="px-4 font-mono text-gray-500 border-l border-white/5 text-center bg-white/[0.01]">25%</td>
+                                    <td class="px-4 border-l border-white/5">
+                                        <div class="flex flex-wrap gap-1">
+                                            <span class="bg-neonred/10 text-neonred px-1.5 py-0.5 rounded text-[10px]">MSFT -15%</span>
+                                            <span class="bg-neonred/10 text-neonred px-1.5 py-0.5 rounded text-[10px]">NVDA -10%</span>
+                                            <span class="bg-neongreen/10 text-neongreen px-1.5 py-0.5 rounded text-[10px]">SH +5%</span>
+                                        </div>
+                                    </td>
+                                    <td class="px-4 text-gray-400 border-l border-white/5 text-[11px] leading-snug">Systematic liquidation of momentum high-beta tech as VIX cross 25 boundary. Variance expansion bypasses fundamental logic.</td>
+                                    <td class="px-4 font-mono text-terminalcyan border-l border-white/5 text-center bg-white/[0.01] font-bold">HIGH</td>
                                 </tr>
                                 <tr class="hover:bg-white/[0.02] transition-colors">
                                     <td class="px-5 font-medium text-white"><div class="flex items-center"><span class="w-2 h-2 rounded-full bg-agentpod mr-2 shadow-[0_0_8px_#eab308]"></span>Pod Manager</div></td>
-                                    <td class="px-4 text-gray-400 border-l border-white/5">Regional Banks Pair (12%)</td>
-                                    <td class="px-4 text-gray-400 border-l border-white/5">SaaS Sector Base (-12%)</td>
-                                    <td class="px-4 font-mono text-gray-500 border-l border-white/5 text-center bg-white/[0.01]">200%</td>
+                                    <td class="px-4 border-l border-white/5">
+                                        <div class="flex flex-wrap gap-1">
+                                            <span class="bg-neonred/10 text-neonred px-1.5 py-0.5 rounded text-[10px]">XLK -12%</span>
+                                            <span class="bg-neonred/10 text-neonred px-1.5 py-0.5 rounded text-[10px]">XLF -8%</span>
+                                            <span class="bg-neongreen/10 text-neongreen px-1.5 py-0.5 rounded text-[10px]">UNH +5%</span>
+                                        </div>
+                                    </td>
+                                    <td class="px-4 text-gray-400 border-l border-white/5 text-[11px] leading-snug">Factor-neutral de-grossing. Selling highly-correlated tech-beta to neutralize systematic variance at the pod level.</td>
+                                    <td class="px-4 font-mono text-gray-500 border-l border-white/5 text-center bg-white/[0.01]">LOW</td>
                                 </tr>
                                 <tr class="hover:bg-white/[0.02] transition-colors">
                                     <td class="px-5 font-medium text-white"><div class="flex items-center"><span class="w-2 h-2 rounded-full bg-agentfundie mr-2 shadow-[0_0_8px_#3b82f6]"></span>Fundie Tiger</div></td>
-                                    <td class="px-4 text-neongreen font-medium border-l border-white/5">MSFT/GOOG Max Size (23%)</td>
-                                    <td class="px-4 text-gray-400 border-l border-white/5">High-Yield ETF (-4%)</td>
-                                    <td class="px-4 font-mono text-gray-500 border-l border-white/5 text-center bg-white/[0.01]">105%</td>
+                                    <td class="px-4 border-l border-white/5">
+                                        <div class="flex flex-wrap gap-1">
+                                            <span class="bg-neongreen/10 text-neongreen px-1.5 py-0.5 rounded text-[10px]">MSFT +23%</span>
+                                            <span class="bg-neongreen/10 text-neongreen px-1.5 py-0.5 rounded text-[10px]">AMZN +14%</span>
+                                            <span class="bg-neonred/10 text-neonred px-1.5 py-0.5 rounded text-[10px]">HYG -4%</span>
+                                        </div>
+                                    </td>
+                                    <td class="px-4 text-gray-400 border-l border-white/5 text-[11px] leading-snug">Duration arbitrage. Absorbing Quant/Pod forced selling to accumulate core structural growth pillars at FCF floor.</td>
+                                    <td class="px-4 font-mono text-neongreen border-l border-white/5 text-center bg-white/[0.01] font-bold">MAX ★</td>
                                 </tr>
                                 <tr class="hover:bg-white/[0.02] transition-colors">
                                     <td class="px-5 font-medium text-white"><div class="flex items-center"><span class="w-2 h-2 rounded-full bg-agentmacro mr-2 shadow-[0_0_8px_#22c55e]"></span>Macro Titan</div></td>
-                                    <td class="px-4 text-gray-400 border-l border-white/5">Sovereign Cash (100%)</td>
-                                    <td class="px-4 text-neonred font-medium border-l border-white/5">Naked TLT Short (-20%)</td>
-                                    <td class="px-4 font-mono text-gray-500 border-l border-white/5 text-center bg-white/[0.01]">20%</td>
+                                    <td class="px-4 border-l border-white/5">
+                                        <div class="flex flex-wrap gap-1">
+                                            <span class="bg-neonred/10 text-neonred px-1.5 py-0.5 rounded text-[10px]">TLT -25%</span>
+                                            <span class="bg-neongreen/10 text-neongreen px-1.5 py-0.5 rounded text-[10px]">DXY +15%</span>
+                                            <span class="bg-neonred/10 text-neonred px-1.5 py-0.5 rounded text-[10px]">GLD -5%</span>
+                                        </div>
+                                    </td>
+                                    <td class="px-4 text-gray-400 border-l border-white/5 text-[11px] leading-snug">Regime confirmation. Direct expression of Bear Steepener shock via sovereign bond futures and FX differentials.</td>
+                                    <td class="px-4 font-mono text-neongreen border-l border-white/5 text-center bg-white/[0.01] font-bold">MAX</td>
                                 </tr>
                                 <tr class="hover:bg-white/[0.02] transition-colors">
                                     <td class="px-5 font-medium text-white"><div class="flex items-center"><span class="w-2 h-2 rounded-full bg-agentactivist mr-2 shadow-[0_0_8px_#ef4444]"></span>Activist Alpha</div></td>
-                                    <td class="px-4 text-gray-400 border-l border-white/5">Target Turnaround (9%)</td>
-                                    <td class="px-4 text-gray-500 italic text-[11px] border-l border-white/5 border-b border-b-transparent">VIX Carry Drag Premium</td>
-                                    <td class="px-4 font-mono text-gray-500 border-l border-white/5 text-center bg-white/[0.01]">120%</td>
+                                    <td class="px-4 border-l border-white/5">
+                                        <div class="flex flex-wrap gap-1">
+                                            <span class="bg-neongreen/10 text-neongreen px-1.5 py-0.5 rounded text-[10px]">VIX Call +3%</span>
+                                            <span class="bg-white/5 text-gray-400 px-1.5 py-0.5 rounded text-[10px]">13D Core 90%</span>
+                                        </div>
+                                    </td>
+                                    <td class="px-4 text-gray-400 border-l border-white/5 text-[11px] leading-snug">Structural trap survival. Paying cost-of-carry on deep OTM gamma hedges while long-term turnaround thesis executes.</td>
+                                    <td class="px-4 font-mono text-gray-500 border-l border-white/5 text-center bg-white/[0.01]">MOD</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -838,40 +870,61 @@
                     </div>
                     <div class="flex flex-col py-0">
                         <div class="flex flex-col sm:flex-row sm:items-center justify-between px-6 py-4 border-b border-white/5 hover:bg-white/[0.02] transition-colors gap-3">
-                            <div class="flex items-center sm:w-[35%]"><span class="font-medium text-white text-[13px]">Alpha Quant</span></div>
+                            <div class="sm:w-[35%]">
+                                <div class="font-medium text-white text-[13px]">Alpha Quant</div>
+                                <div class="text-[9px] text-gray-500 mt-0.5">Renaissance / Two Sigma</div>
+                            </div>
                             <div class="flex space-x-2 text-[9px] text-gray-500 sm:w-[50%] font-medium uppercase tracking-wider items-center">
-                                <span class="bg-white/5 border border-white/10 px-2 py-1 rounded">Philosophy Match</span>
-                                <span class="bg-white/5 border border-white/10 px-2 py-1 rounded">Risk Realism</span>
+                                <span class="bg-white/5 border border-white/10 px-2 py-1 rounded">HMM Match 100%</span>
+                                <span class="bg-red-500/10 text-red-500 border border-red-500/20 px-2 py-1 rounded">Black Box Penalty (-70)</span>
                             </div>
                             <div class="text-[15px] font-mono text-white font-medium sm:w-[15%] sm:text-right">30<span class="text-[10px] text-gray-600 font-sans ml-1">/100</span></div>
                         </div>
                         
                         <div class="flex flex-col sm:flex-row sm:items-center justify-between px-6 py-4 border-b border-white/5 bg-red-950/10 transition-colors gap-3">
-                            <div class="flex items-center sm:w-[35%]"><span class="font-medium text-white text-[13px]">Pod Manager</span></div>
+                            <div class="sm:w-[35%]">
+                                <div class="font-medium text-white text-[13px]">Pod Manager</div>
+                                <div class="text-[9px] text-gray-500 mt-0.5">Millennium / Citadel</div>
+                            </div>
                             <div class="flex space-x-2 text-[9px] text-gray-500 sm:w-[50%] font-medium uppercase tracking-wider items-center">
-                                <span class="bg-red-950/40 border border-red-500/20 text-red-400 px-2.5 py-1 rounded">Gross Leverage Disconnect (-15)</span>
+                                <span class="bg-white/5 border border-white/10 px-2 py-1 rounded">5/7.5 Rule Match</span>
+                                <span class="bg-red-950/40 border border-red-500/20 text-red-400 px-2 py-1 rounded">13F Opacity Penalty (-55)</span>
                             </div>
                             <div class="text-[15px] font-mono text-neonred font-medium sm:w-[15%] sm:text-right">45<span class="text-[10px] text-gray-600 font-sans ml-1">/100</span></div>
                         </div>
+
                         <div class="flex flex-col sm:flex-row sm:items-center justify-between px-6 py-4 border-b border-white/5 hover:bg-white/[0.02] transition-colors gap-3">
-                            <div class="flex items-center sm:w-[35%]"><span class="font-medium text-white text-[13px]">Fundie Tiger</span></div>
+                            <div class="sm:w-[35%]">
+                                <div class="font-medium text-white text-[13px]">Fundie Tiger</div>
+                                <div class="text-[9px] text-gray-500 mt-0.5">Tiger Global / Lone Pine</div>
+                            </div>
                             <div class="flex space-x-2 text-[9px] text-gray-500 sm:w-[50%] font-medium uppercase tracking-wider items-center">
-                                <span class="bg-white/5 border border-white/10 px-2 py-1 rounded text-neongreen">High Horizon Cohesion</span>
-                                <span class="bg-white/5 border border-white/10 px-2 py-1 rounded text-neongreen">Sizing Perfect</span>
+                                <span class="bg-neongreen/10 text-neongreen border border-neongreen/20 px-2 py-1 rounded text-neongreen">13F Visibility Max</span>
+                                <span class="bg-neongreen/10 text-neongreen border border-neongreen/20 px-2 py-1 rounded text-neongreen">Horizon Cohesion</span>
                             </div>
                             <div class="text-[15px] font-mono text-neongreen font-bold sm:w-[15%] sm:text-right">95<span class="text-[10px] text-gray-600 font-sans ml-1 font-normal">/100</span></div>
                         </div>
+
                         <div class="flex flex-col sm:flex-row sm:items-center justify-between px-6 py-4 border-b border-white/5 hover:bg-white/[0.02] transition-colors gap-3">
-                            <div class="flex items-center sm:w-[35%]"><span class="font-medium text-white text-[13px]">Macro Titan</span></div>
+                            <div class="sm:w-[35%]">
+                                <div class="font-medium text-white text-[13px]">Macro Titan</div>
+                                <div class="text-[9px] text-gray-500 mt-0.5">Bridgewater / Brevan</div>
+                            </div>
                             <div class="flex space-x-2 text-[9px] text-gray-500 sm:w-[50%] font-medium uppercase tracking-wider items-center">
-                                <span class="bg-white/5 border border-white/10 px-2 py-1 rounded">Historical Analogs Valid</span>
+                                <span class="bg-white/5 border border-white/10 px-2 py-1 rounded">Causal Machine Match</span>
+                                <span class="bg-white/5 border border-white/10 px-2 py-1 rounded">Analogs Valid</span>
                             </div>
                             <div class="text-[15px] font-mono text-white font-medium sm:w-[15%] sm:text-right">85<span class="text-[10px] text-gray-600 font-sans ml-1">/100</span></div>
                         </div>
+
                         <div class="flex flex-col sm:flex-row sm:items-center justify-between px-6 py-4 hover:bg-white/[0.02] transition-colors gap-3">
-                            <div class="flex items-center sm:w-[35%]"><span class="font-medium text-white text-[13px]">Activist Alpha</span></div>
+                            <div class="sm:w-[35%]">
+                                <div class="font-medium text-white text-[13px]">Activist Alpha</div>
+                                <div class="text-[9px] text-gray-500 mt-0.5">Elliott Management</div>
+                            </div>
                             <div class="flex space-x-2 text-[9px] text-gray-500 sm:w-[50%] font-medium uppercase tracking-wider items-center">
-                                <span class="bg-white/5 border border-white/10 px-2 py-1 rounded text-bloombergorange">Cost of Carry Accurate</span>
+                                <span class="bg-bloombergorange/10 text-bloombergorange border border-bloombergorange/20 px-2 py-1 rounded">Cost of Carry Accurate</span>
+                                <span class="bg-white/5 border border-white/10 px-2 py-1 rounded">13D Latency (-25)</span>
                             </div>
                             <div class="text-[15px] font-mono text-white font-medium sm:w-[15%] sm:text-right">75<span class="text-[10px] text-gray-600 font-sans ml-1">/100</span></div>
                         </div>

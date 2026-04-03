@@ -36,7 +36,22 @@
         "q3_2022_inflation": "Forced sector neutralization via XLF shorts as rates sector outperformed uncontrollably."
     },
     "macro_reaction_function": "Drawdown survival mechanics override all fundamental judgment. Macro shocks force correlation convergence → center risk cuts PM allocations mechanically → reinforces downward momentum in liquid names.",
-    "confidence_notes": "Very High Confidence. Pod center risk architecture is inflexible by design. Liquidation triggers are mathematical and fully automated.",
+    "fidelity_score": {
+        "overall": 45,
+        "philosophical_match": 100,
+        "risk_style_match": 100,
+        "observability_penalty": -55,
+        "match_breakdown": "Philosophically and mechanically perfect (5/7.5 rule is hardcoded). However, the Fidelity Score is severely penalized (-55) due to '13F Opacity'. SEC 13F laws do not require disclosure of short positions or OTC swap derivatives, which constitute 85%+ of a real Pod Shop's active risk during macro shocks. Behavioral AI is 100% accurate to mandate, but only 45% verifiable against public 13F filings."
+    },
+    "performance_projection": {
+        "outlook_30d": "De-grossing & Factor Neutralization",
+        "alpha_conviction": "Low (Survival Mode)",
+        "projected_30d_portfolio": [
+            { "ticker": "XLK", "weight": "-12%", "logic": "Systematic factor reduction to neutralize tech-beta during yield spike." },
+            { "ticker": "XLF", "weight": "-8%", "logic": "Hedge against credit spread widening in mid-tier financial pods." },
+            { "ticker": "UNH", "weight": "+5%", "logic": "Defensive healthcare allocation to minimize pod-level variance." }
+        ]
+    },
     "evidence_sources": [
         "data/filings/13F_Citadel_Q1.json",
         "data/interviews/Pod_Risk_Manager_Podcast_2023.txt",

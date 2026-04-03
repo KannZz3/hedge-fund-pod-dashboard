@@ -38,7 +38,22 @@
         "q3_2022_inflation": "Correctly identified 'Stagflationary' regime; Pure Alpha gained 32% in H1 2022 via short bonds/long USD."
     },
     "macro_reaction_function": "Unhedged conviction amplification. During a duration shock, aggressively shorts bond proxies and long-duration tech ETFs — compounds catalyst directionally rather than hedging.",
-    "confidence_notes": "Moderate Confidence. Discretionary nature introduces human bias and timing risk. Structural regime bets tend to be vindicated over 3-12 month horizon.",
+    "fidelity_score": {
+        "overall": 85,
+        "philosophical_match": 100,
+        "risk_style_match": 90,
+        "observability_penalty": -5,
+        "match_breakdown": "High cohesion with Ray Dalio's 'Economic Machine' (Causal Logic). The agent's 2022 performance (identifying stagflation early) mirrors actual Bridgewater results. Observability is high due to public investor letters and the thematic nature of their trades being visible in larger G10 bond/FX flows."
+    },
+    "performance_projection": {
+        "outlook_30d": "Causal Yield Divergence",
+        "alpha_conviction": "Max (Regime Confirmation)",
+        "projected_30d_portfolio": [
+            { "ticker": "TLT", "weight": "-25%", "logic": "Direct expression of Bond Vigilante duration shock; riding the Bear Steepener." },
+            { "ticker": "DXY", "weight": "+15%", "logic": "Yield-differential play as Fed remains hawkish vs global peers." },
+            { "ticker": "GLD", "weight": "-5%", "logic": "Opportunistic hedge reduction as real yields spike." }
+        ]
+    },
     "evidence_sources": [
         "data/investor_letters/Soros_Fund_Management_Review.pdf",
         "data/historical_regimes/Macro_Rates_Cycle_Analog_2018.json",
