@@ -94,4 +94,4 @@ python tools/export_positioning_memos.py
 
 The dashboard is served directly from **`index.html`** at the repository root.
 
-[Link URL: ([https://kannzz3.github.io/short-alpha-pod/](https://kannzz3.github.io/hedge-fund-pod-dashboard/))]
+[Link URL: (https://kannzz3.github.io/hedge-fund-pod-dashboard/)]
